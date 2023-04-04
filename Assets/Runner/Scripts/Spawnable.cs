@@ -18,7 +18,7 @@ namespace HyperCasual.Runner
     {
         protected Transform m_Transform;
 
-        LevelDefinition m_LevelDefinition;
+        
         Vector3 m_Position;
         Color m_BaseColor;
         bool m_SnappedThisFrame;
@@ -55,13 +55,13 @@ namespace HyperCasual.Runner
                 m_BaseColor = m_MeshRenderers[0].sharedMaterial.color;
             }
 
-            if (LevelManager.Instance != null)
-            {
-#if UNITY_EDITOR
-                if (PrefabUtility.IsPartOfNonAssetPrefabInstance(gameObject))
-#endif
-                m_Transform.SetParent(LevelManager.Instance.transform);
-            }
+//             if (LevelManager.Instance != null)
+//             {
+// #if UNITY_EDITOR
+//                 if (PrefabUtility.IsPartOfNonAssetPrefabInstance(gameObject))
+// #endif
+//                 m_Transform.SetParent(LevelManager.Instance.transform);
+//             }
         }
 
         /// <summary>
@@ -114,15 +114,15 @@ namespace HyperCasual.Runner
         /// <param name="levelDefinition">
         /// The LevelDefinition this SpawnableObject belongs to.
         /// </param>
-        public void SetLevelDefinition(LevelDefinition levelDefinition)
-        {
-            if (levelDefinition == null)
-            {
-                return;
-            }
+        // public void SetLevelDefinition(LevelDefinition levelDefinition)
+        // {
+        //     if (levelDefinition == null)
+        //     {
+        //         return;
+        //     }
 
-            m_LevelDefinition = levelDefinition;
-        }
+        //     m_LevelDefinition = levelDefinition;
+        // }
 
         /// <summary>
         /// This method can be overriden in classes that extend Spawnable
@@ -130,39 +130,39 @@ namespace HyperCasual.Runner
         /// </summary>
         public virtual void ResetSpawnable() {}
 
-        protected virtual void OnEnable()
-        {
-            m_Transform = transform;
-            m_Position = m_Transform.position;
-            m_Transform.hasChanged = false;
+        // protected virtual void OnEnable()
+        // {
+        //     m_Transform = transform;
+        //     m_Position = m_Transform.position;
+        //     m_Transform.hasChanged = false;
 
-            if (LevelManager.Instance != null && !Application.isPlaying)
-            {
-                // Ensure level definition is set for spawnable prefabs
-                // created by the user while the level is open in the
-                // level editor.
-                SetLevelDefinition(LevelManager.Instance.LevelDefinition);
-                SnapToGrid();
-            }
-        }
+        //     if (LevelManager.Instance != null && !Application.isPlaying)
+        //     {
+        //         // Ensure level definition is set for spawnable prefabs
+        //         // created by the user while the level is open in the
+        //         // level editor.
+        //         SetLevelDefinition(LevelManager.Instance.LevelDefinition);
+        //         SnapToGrid();
+        //     }
+        // }
 
         protected virtual void Update()
         {
-            if (!Application.isPlaying && m_LevelDefinition != null)
+            if (!Application.isPlaying)// && m_LevelDefinition != null)
             {
                 if (m_Transform.hasChanged)
                 {
                     m_Position = m_Transform.position;
                     m_Transform.hasChanged = false;
 
-                    if (m_LevelDefinition.SnapToGrid)
-                    {
-                        SnapToGrid();
-                    }
+                    // if (m_LevelDefinition.SnapToGrid)
+                    // {
+                    //     SnapToGrid();
+                    // }
 
                     SetScale(m_Transform.localScale);
                 }
-                else if (m_PreviousGridSize != m_LevelDefinition.GridSize)
+                else //if (m_PreviousGridSize != m_LevelDefinition.GridSize)
                 {
                     SnapToGrid();
                 }
@@ -175,20 +175,20 @@ namespace HyperCasual.Runner
         /// </summary>
         protected virtual void SnapToGrid()
         {
-            if (!m_SnapToGrid || m_LevelDefinition == null)
+            if (!m_SnapToGrid )//|| m_LevelDefinition == null)
             {
                 return;
             }
 
             Vector3 position = m_Position;
 
-            position.x = m_LevelDefinition.GridSize * Mathf.Round(position.x/m_LevelDefinition.GridSize);
-            position.z = m_LevelDefinition.GridSize * Mathf.Round(position.z/m_LevelDefinition.GridSize);
+            // position.x = m_LevelDefinition.GridSize * Mathf.Round(position.x/m_LevelDefinition.GridSize);
+            // position.z = m_LevelDefinition.GridSize * Mathf.Round(position.z/m_LevelDefinition.GridSize);
 
             m_Transform.position = position;
 
             // Update previous grid size
-            m_PreviousGridSize = m_LevelDefinition.GridSize;
+            // m_PreviousGridSize = m_LevelDefinition.GridSize;
 
             // Do not allow a snap to enable this flag
             m_Transform.hasChanged = false;

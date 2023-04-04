@@ -29,7 +29,7 @@ namespace HyperCasual.Runner
         [SerializeField]
         AbstractGameEvent m_LoseEvent;
 
-        LevelDefinition m_CurrentLevel;
+       // LevelDefinition m_CurrentLevel;
 
         /// <summary>
         /// Returns true if the game is currently active.
@@ -38,15 +38,15 @@ namespace HyperCasual.Runner
         /// </summary>
         public bool IsPlaying => m_IsPlaying;
         bool m_IsPlaying;
-        GameObject m_CurrentLevelGO;
+        // GameObject m_CurrentLevelGO;
         GameObject m_CurrentTerrainGO;
-        GameObject m_LevelMarkersGO;
+        // GameObject m_LevelMarkersGO;
 
         List<Spawnable> m_ActiveSpawnables = new List<Spawnable>();
 
-#if UNITY_EDITOR
-        bool m_LevelEditorMode;
-#endif
+// #if UNITY_EDITOR
+//         bool m_LevelEditorMode;
+// #endif
 
         void Awake()
         {
@@ -60,11 +60,11 @@ namespace HyperCasual.Runner
 
 #if UNITY_EDITOR
             // If LevelManager already exists, user is in the LevelEditorWindow
-            if (LevelManager.Instance != null)
-            {
+            // if (LevelManager.Instance != null)
+            // {
                 StartGame();
-                m_LevelEditorMode = true;
-            }
+            //     m_LevelEditorMode = true;
+            // }
 #endif
         }
 
@@ -72,14 +72,14 @@ namespace HyperCasual.Runner
         /// This method calls all methods necessary to load and
         /// instantiate a level from a level definition.
         /// </summary>
-        public void LoadLevel(LevelDefinition levelDefinition)
-        {
-            m_CurrentLevel = levelDefinition;
-            LoadLevel(m_CurrentLevel, ref m_CurrentLevelGO);
-            CreateTerrain(m_CurrentLevel, ref m_CurrentTerrainGO);
-            PlaceLevelMarkers(m_CurrentLevel, ref m_LevelMarkersGO);
-            StartGame();
-        }
+        // public void LoadLevel(LevelDefinition levelDefinition)
+        // {
+        //     // m_CurrentLevel = levelDefinition;
+        //     // LoadLevel(m_CurrentLevel, ref m_CurrentLevelGO);
+        //     // CreateTerrain(m_CurrentLevel, ref m_CurrentTerrainGO);
+        //     // PlaceLevelMarkers(m_CurrentLevel, ref m_LevelMarkersGO);
+        //     StartGame();
+        // }
 
         /// <summary>
         /// This method calls all methods necessary to restart a level,
@@ -97,10 +97,10 @@ namespace HyperCasual.Runner
                 CameraManager.Instance.ResetCamera();
             }
 
-            if (LevelManager.Instance != null)
-            {
-                LevelManager.Instance.ResetSpawnables();
-            }
+            // if (LevelManager.Instance != null)
+            // {
+            //     LevelManager.Instance.ResetSpawnables();
+            // }
         }
 
         /// <summary>
@@ -114,7 +114,7 @@ namespace HyperCasual.Runner
         /// <param name="levelGameObject">
         /// A new GameObject to be created, acting as the parent for the level to be loaded
         /// </param>
-        public static void LoadLevel(LevelDefinition levelDefinition, ref GameObject levelGameObject)
+       /* public static void LoadLevel(LevelDefinition levelDefinition, ref GameObject levelGameObject)
         {
             if (levelDefinition == null)
             {
@@ -187,26 +187,26 @@ namespace HyperCasual.Runner
                     go.transform.SetParent(levelParent);
                 }
             }
-        }
+        }*/
 
         public void UnloadCurrentLevel()
         {
-            if (m_CurrentLevelGO != null)
-            {
-                GameObject.Destroy(m_CurrentLevelGO);
-            }
+            // if (m_CurrentLevelGO != null)
+            // {
+            //     GameObject.Destroy(m_CurrentLevelGO);
+            // }
 
-            if (m_LevelMarkersGO != null)
-            {
-                GameObject.Destroy(m_LevelMarkersGO);
-            }
+            // if (m_LevelMarkersGO != null)
+            // {
+            //     GameObject.Destroy(m_LevelMarkersGO);
+            // }
 
             if (m_CurrentTerrainGO != null)
             {
                 GameObject.Destroy(m_CurrentTerrainGO);
             }
 
-            m_CurrentLevel = null;
+            //m_CurrentLevel = null;
         }
 
         void StartGame()
@@ -225,7 +225,7 @@ namespace HyperCasual.Runner
         /// <param name="levelMarkersGameObject">
         /// A new GameObject that is created to be the parent of the start and end prefabs.
         /// </param>
-        public static void PlaceLevelMarkers(LevelDefinition levelDefinition, ref GameObject levelMarkersGameObject)
+        public static void PlaceStartMarkers(ref GameObject levelMarkersGameObject)
         {
             if (levelMarkersGameObject != null)
             {
@@ -241,20 +241,20 @@ namespace HyperCasual.Runner
 
             levelMarkersGameObject = new GameObject("Level Markers");
 
-            GameObject start = levelDefinition.StartPrefab;
-            GameObject end = levelDefinition.EndPrefab;
+            //GameObject start = levelDefinition.StartPrefab;
+            
 
-            if (start != null)
-            {
-                GameObject go = GameObject.Instantiate(start, new Vector3(start.transform.position.x, start.transform.position.y, 0.0f), Quaternion.identity);
-                go.transform.SetParent(levelMarkersGameObject.transform);
-            }
+            // if (start != null)
+            // {
+            //     GameObject go = GameObject.Instantiate(start, new Vector3(start.transform.position.x, start.transform.position.y, 0.0f), Quaternion.identity);
+            //     go.transform.SetParent(levelMarkersGameObject.transform);
+            // }
 
-            if (end != null)
-            {
-                GameObject go = GameObject.Instantiate(end, new Vector3(end.transform.position.x, end.transform.position.y, levelDefinition.LevelLength), Quaternion.identity);
-                go.transform.SetParent(levelMarkersGameObject.transform);
-            }
+            // if (end != null)
+            // {
+            //     GameObject go = GameObject.Instantiate(end, new Vector3(end.transform.position.x, end.transform.position.y, levelDefinition.LevelLength), Quaternion.identity);
+            //     go.transform.SetParent(levelMarkersGameObject.transform);
+            // }
         }
 
         /// <summary>
@@ -267,40 +267,40 @@ namespace HyperCasual.Runner
         /// <param name="terrainGameObject">
         /// A new GameObject that is created to hold the terrain.
         /// </param>
-        public static void CreateTerrain(LevelDefinition levelDefinition, ref GameObject terrainGameObject)
-        {
-            TerrainGenerator.TerrainDimensions terrainDimensions = new TerrainGenerator.TerrainDimensions()
-            {
-                Width = levelDefinition.LevelWidth,
-                Length = levelDefinition.LevelLength,
-                StartBuffer = levelDefinition.LevelLengthBufferStart,
-                EndBuffer = levelDefinition.LevelLengthBufferEnd,
-                Thickness = levelDefinition.LevelThickness
-            };
-            TerrainGenerator.CreateTerrain(terrainDimensions, levelDefinition.TerrainMaterial, ref terrainGameObject);
-        }
+        // public static void CreateTerrain(LevelDefinition levelDefinition, ref GameObject terrainGameObject)
+        // {
+        //     TerrainGenerator.TerrainDimensions terrainDimensions = new TerrainGenerator.TerrainDimensions()
+        //     {
+        //         Width = levelDefinition.LevelWidth,
+        //         Length = levelDefinition.LevelLength,
+        //         StartBuffer = levelDefinition.LevelLengthBufferStart,
+        //         EndBuffer = levelDefinition.LevelLengthBufferEnd,
+        //         Thickness = levelDefinition.LevelThickness
+        //     };
+        //     TerrainGenerator.CreateTerrain(terrainDimensions, levelDefinition.TerrainMaterial, ref terrainGameObject);
+        // }
 
-        public void Win()
-        {
-            m_WinEvent.Raise();
+//         public void Win()
+//         {
+//             m_WinEvent.Raise();
 
-#if UNITY_EDITOR
-            if (m_LevelEditorMode)
-            {
-                ResetLevel();
-            }
-#endif
-        }
+// #if UNITY_EDITOR
+//             if (m_LevelEditorMode)
+//             {
+//                 ResetLevel();
+//             }
+// #endif
+//         }
 
         public void Lose()
         {
             m_LoseEvent.Raise();
 
 #if UNITY_EDITOR
-            if (m_LevelEditorMode)
-            {
-                ResetLevel();
-            }
+            // if (m_LevelEditorMode)
+            // {
+            //     ResetLevel();
+            // }
 #endif
         }
     }

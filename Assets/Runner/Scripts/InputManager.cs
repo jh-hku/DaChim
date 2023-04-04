@@ -21,6 +21,7 @@ namespace HyperCasual.Runner
         [SerializeField]
         float m_InputSensitivity = 1.5f;
 
+        //public SwipeControls Controls;
         bool m_HasInput;
         Vector3 m_InputPosition;
         Vector3 m_PreviousInputPosition;

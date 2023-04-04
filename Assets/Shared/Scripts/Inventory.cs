@@ -131,11 +131,11 @@ namespace HyperCasual.Runner
                 m_TempXp += PlayerController.Instance.Speed * Time.deltaTime;
                 m_Hud.XpValue = m_TempXp;
                 
-                if (SequenceManager.Instance.m_CurrentLevel is LoadLevelFromDef loadLevelFromDef)
-                {
-                    m_Hud.XpSlider.minValue = 0;
-                    m_Hud.XpSlider.maxValue = loadLevelFromDef.m_LevelDefinition.LevelLength;
-                }
+                // if (SequenceManager.Instance.m_CurrentLevel is LoadLevelFromDef loadLevelFromDef)
+                // {
+                //     m_Hud.XpSlider.minValue = 0;
+                //     m_Hud.XpSlider.maxValue = loadLevelFromDef.m_LevelDefinition.LevelLength;
+                // }
             }
         }
     }

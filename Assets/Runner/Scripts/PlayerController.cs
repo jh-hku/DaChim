@@ -208,12 +208,12 @@ namespace HyperCasual.Runner
         /// </summary>
         public void SetDeltaPosition(float normalizedDeltaPosition)
         {
-            if (m_MaxXPosition == 0.0f)
-            {
-                Debug.LogError("Player cannot move because SetMaxXPosition has never been called or Level Width is 0. If you are in the LevelEditor scene, ensure a level has been loaded in the LevelEditor Window!");
-            }
-
-            float fullWidth = m_MaxXPosition * 2.0f;
+            // if (m_MaxXPosition == 0.0f)
+            // {
+            //     Debug.LogError("Player cannot move because SetMaxXPosition has never been called or Level Width is 0. If you are in the LevelEditor scene, ensure a level has been loaded in the LevelEditor Window!");
+            // }
+            m_MaxXPosition  = 3;
+            float fullWidth = 10 * 2.0f;
             m_TargetPosition = m_TargetPosition + fullWidth * normalizedDeltaPosition;
             m_TargetPosition = Mathf.Clamp(m_TargetPosition, -m_MaxXPosition, m_MaxXPosition);
             m_HasInput = true;
@@ -296,7 +296,7 @@ namespace HyperCasual.Runner
                 float newPositionDifference = newPositionTarget - m_XPos;
 
                 newPositionDifference = Mathf.Clamp(newPositionDifference, -horizontalSpeed, horizontalSpeed);
-
+                
                 m_XPos += newPositionDifference;
             }
 

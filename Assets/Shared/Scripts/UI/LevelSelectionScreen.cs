@@ -17,8 +17,8 @@ namespace HyperCasual.Gameplay
         [SerializeField]
         HyperCasualButton m_BackButton;
         [Space]
-        [SerializeField]
-        LevelSelectButton m_LevelButtonPrefab;
+        // [SerializeField]
+        // LevelSelectButton m_LevelButtonPrefab;
         [SerializeField]
         RectTransform m_LevelButtonsRoot;
         [SerializeField]
@@ -30,17 +30,17 @@ namespace HyperCasual.Gameplay
         bool m_UnlockAllLevels;
 #endif
 
-        readonly List<LevelSelectButton> m_Buttons = new();
+        //readonly List<LevelSelectButton> m_Buttons = new();
 
         void Start()
         {
-            var levels = SequenceManager.Instance.Levels;
-            for (int i = 0; i < levels.Length; i++)
-            {
-                m_Buttons.Add(Instantiate(m_LevelButtonPrefab, m_LevelButtonsRoot));
-            }
+            // var levels = SequenceManager.Instance.Levels;
+            // for (int i = 0; i < levels.Length; i++)
+            // {
+            //     m_Buttons.Add(Instantiate(m_LevelButtonPrefab, m_LevelButtonsRoot));
+            // }
 
-            ResetButtonData();
+            // ResetButtonData();
         }
 
         void OnEnable()
@@ -60,15 +60,15 @@ namespace HyperCasual.Gameplay
         void ResetButtonData()
         {
             var levelProgress = SaveManager.Instance.LevelProgress;
-            for (int i = 0; i < m_Buttons.Count; i++)
-            {
-                var button = m_Buttons[i];
-                var unlocked = i <= levelProgress;
-#if UNITY_EDITOR
-                unlocked = unlocked || m_UnlockAllLevels;
-#endif
-                button.SetData(i, unlocked, OnClick);
-            }
+//             for (int i = 0; i < m_Buttons.Count; i++)
+//             {
+//                 var button = m_Buttons[i];
+//                 var unlocked = i <= levelProgress;
+// #if UNITY_EDITOR
+//                 unlocked = unlocked || m_UnlockAllLevels;
+// #endif
+//                 button.SetData(i, unlocked, OnClick);
+//             }
         }
         
         void OnClick(int startingIndex)
@@ -76,7 +76,7 @@ namespace HyperCasual.Gameplay
             if (startingIndex < 0)
                 throw new Exception("Button is not initialized");
 
-            SequenceManager.Instance.SetStartingLevel(startingIndex);
+            //SequenceManager.Instance.SetStartingLevel(startingIndex);
             m_NextLevelEvent.Raise();
         }
         
