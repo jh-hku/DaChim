@@ -11,12 +11,26 @@ public class MTRTunnel : MonoBehaviour
     {
         tunnelSpawner = GameObject.FindObjectOfType<TunnelSpawner>();
     }
+    
+    /*
+    void OnBecameInvisible()
+    {
+        // Destroy the bullet
+        tunnelSpawner.SpawnMTRTunnel(true);
+        Destroy(gameObject);
+    }*/
 
+    
     private void OnTriggerExit(Collider other)
     {
-        tunnelSpawner.SpawnMTRTunnel(true);
-        // Destroy gameObject 2 sec after player leave the trigger 
-        Destroy(gameObject, 2);
+        
+        // Destroy gameObject 2 sec after player leave the trigger
+        if (other.gameObject.name == "Player")
+        {
+            tunnelSpawner.SpawnMTRTunnel(true);
+            Destroy(gameObject, 1);
+        }
+        
     }
 
     // Update is called once per frame

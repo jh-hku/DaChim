@@ -12,6 +12,8 @@ namespace HyperCasual.Runner
     /// </summary>
     public class PlayerController : MonoBehaviour
     {
+        private int playerLife = 10;
+
         /// <summary> Returns the PlayerController. </summary>
         public static PlayerController Instance => s_Instance;
         static PlayerController s_Instance;
@@ -69,6 +71,7 @@ namespace HyperCasual.Runner
         Vector3 m_Scale;
         Vector3 m_TargetScale;
         Vector3 m_DefaultScale;
+
 
         const float k_HalfWidth = 0.5f;
 
@@ -212,7 +215,7 @@ namespace HyperCasual.Runner
             // {
             //     Debug.LogError("Player cannot move because SetMaxXPosition has never been called or Level Width is 0. If you are in the LevelEditor scene, ensure a level has been loaded in the LevelEditor Window!");
             // }
-            m_MaxXPosition  = 3;
+            m_MaxXPosition  = 7.1f;
             float fullWidth = 10 * 2.0f;
             m_TargetPosition = m_TargetPosition + fullWidth * normalizedDeltaPosition;
             m_TargetPosition = Mathf.Clamp(m_TargetPosition, -m_MaxXPosition, m_MaxXPosition);
@@ -257,6 +260,12 @@ namespace HyperCasual.Runner
 
         void Update()
         {
+            if (IsDied()) 
+            {
+                return;
+            }
+
+
             float deltaTime = Time.deltaTime;
 
             // Update Scale
@@ -316,6 +325,7 @@ namespace HyperCasual.Runner
             }
 
             m_LastPosition = m_Transform.position;
+            m_TargetSpeed += deltaTime * m_AccelerationSpeed;
         }
 
         void Accelerate(float deltaTime, float targetSpeed)
@@ -333,6 +343,32 @@ namespace HyperCasual.Runner
         bool Approximately(Vector3 a, Vector3 b)
         {
             return Mathf.Approximately(a.x, b.x) && Mathf.Approximately(a.y, b.y) && Mathf.Approximately(a.z, b.z);
+        }
+
+        public void GotHitted()
+        {
+            DecreasePlayerLife(1);
+        }
+        public void BeingCured()
+        {
+            IncreasePlayerLife(1);
+        }
+
+        public int GetPlayerLife()
+        {
+            return playerLife;
+        }
+        private void DecreasePlayerLife(int lifeDecreased)
+        {
+            playerLife -= lifeDecreased;
+        }
+        private void IncreasePlayerLife(int lifeIncreased)
+        {
+            playerLife += lifeIncreased;
+        }
+        public bool IsDied()
+        {
+            return playerLife < 0;
         }
     }
 }
