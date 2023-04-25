@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Food : MonoBehaviour
 {
     public int speed = 20;
     [SerializeField] Rigidbody rb;
@@ -18,9 +18,12 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.name == "Player")
         {
-            // Kiil the player
-            playerController.ResetSpeed();
-            playerController.GotHitted();
+            Destroy(gameObject);
+            playerController.BeingCured();
+            Debug.Log("Picked Food");
+        }
+        else if (collision.gameObject.name == "HighObstacle")
+        {
             Destroy(gameObject);
         }
     }

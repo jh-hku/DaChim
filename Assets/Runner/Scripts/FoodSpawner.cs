@@ -1,20 +1,20 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EmenySpawner : MonoBehaviour
+public class FoodSpawner : MonoBehaviour
 {   
     // player object
     [SerializeField] Transform player;
     // distance between EmenySpawner and the player
     Vector3 offset;
 
-    // for spawning enemy
-    public float distPerEnemy = 100f;
+   
+    public float distPerFood = 100f;
     private float distanceMoved = 0f;
     private Vector3 spawnPosition;
-    // Variable to store the enemy prefab
-    public List<GameObject> enemy;
+    
+    public List<GameObject> food;
 
     // Variable to know how fast we should create new enemies
     public float spawnTime = 0.01f;
@@ -25,8 +25,7 @@ public class EmenySpawner : MonoBehaviour
     {
         offset = transform.position - player.position;
         spawnPosition = transform.position;
-        // Call the 'addEnemy' function every 'spawnTime' seconds
-        //InvokeRepeating("addEnemy", spawnTime, spawnTime);
+        
     }
 
     // Update is called once per frame
@@ -41,17 +40,17 @@ public class EmenySpawner : MonoBehaviour
         distanceMoved += Vector3.Distance(transform.position, spawnPosition);
         spawnPosition = transform.position;
 
-        if (distanceMoved >= distPerEnemy)
+        if (distanceMoved >= distPerFood)
         {
-            addEnemy();
+            addFood();
             distanceMoved = 0f;
         }
 
 
     }
 
-    // New function to spawn an enemy
-    void addEnemy()
+    
+    void addFood()
     {
         Renderer rd = GetComponent<Renderer>();
         float s = rd.bounds.size.x / 2;
@@ -71,19 +70,19 @@ public class EmenySpawner : MonoBehaviour
             if (prob > 0.5 & count < 2) {
                 Vector3 spawnPoint = new Vector3(5 * i, -4, transform.position.z);
 
-                // Create an enemy at the 'spawnPoint' position  
-                Instantiate(enemy[Random.Range(0, 4)], spawnPoint, Quaternion.identity);
+             
+                Instantiate(food[Random.Range(0, 5)], spawnPoint, Quaternion.identity);
                 count++;
             }
             
         }
 
-        // spawn one enemy if no enemy spawns
+        
         if (count == 0) {
             Vector3 spawnPoint = new Vector3(5 * Random.Range(x1, x2), -4, transform.position.z);
 
-            // Create an enemy at the 'spawnPoint' position  
-            Instantiate(enemy[Random.Range(0, 4)], spawnPoint, Quaternion.identity);
+           
+            Instantiate(food[Random.Range(0, 5)], spawnPoint, Quaternion.identity);
 
         }
         

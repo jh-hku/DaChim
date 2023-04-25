@@ -398,6 +398,7 @@ namespace HyperCasual.Runner
         {
             IncreasePlayerLife(1);
         }
+        
 
         public int GetPlayerLife()
         {
