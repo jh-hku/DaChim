@@ -72,6 +72,12 @@ namespace HyperCasual.Runner
         Vector3 m_TargetScale;
         Vector3 m_DefaultScale;
 
+        private int desiredLane = 1; //0Left, 1Mid, 2Right
+        public float laneDistance = 6; //dis btwn 2 lanes
+        public float jumpForce = 2000;
+        public float gravity = -9.81f;
+        float velocity;
+
 
         const float k_HalfWidth = 0.5f;
 
@@ -297,19 +303,58 @@ namespace HyperCasual.Runner
 
             m_ZPos += speed;
 
-            if (m_HasInput)
+            if (Input.GetKeyDown(KeyCode.RightArrow))
             {
-                float horizontalSpeed = speed * m_HorizontalSpeedFactor;
-
-                float newPositionTarget = Mathf.Lerp(m_XPos, m_TargetPosition, horizontalSpeed);
-                float newPositionDifference = newPositionTarget - m_XPos;
-
-                newPositionDifference = Mathf.Clamp(newPositionDifference, -horizontalSpeed, horizontalSpeed);
-                
-                m_XPos += newPositionDifference;
+                desiredLane ++;
+                if(desiredLane == 3)
+                {
+                    desiredLane = 2;
+                }
             }
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                desiredLane--;
+                if(desiredLane == -1)
+                {
+                    desiredLane = 0;
+                }
+            }
+            //velocity += gravity * Time.deltaTime;
+            velocity = 0;
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                Debug.Log("Up");
+                
+                velocity = jumpForce;
+            }
+            m_Transform.Translate(new Vector3(0,velocity,0) * Time.deltaTime);
 
             m_Transform.position = new Vector3(m_XPos, m_Transform.position.y, m_ZPos);
+
+            if (desiredLane == 0)
+            {
+                m_Transform.position += Vector3.left * laneDistance;
+
+            } else if (desiredLane == 2)
+            {
+                m_Transform.position += Vector3.right * laneDistance;
+            }
+
+
+            
+            if (m_HasInput)
+            {
+                // float horizontalSpeed = speed * m_HorizontalSpeedFactor;
+
+                // float newPositionTarget = Mathf.Lerp(m_XPos, m_TargetPosition, horizontalSpeed);
+                // float newPositionDifference = newPositionTarget - m_XPos;
+
+                // newPositionDifference = Mathf.Clamp(newPositionDifference, -horizontalSpeed, horizontalSpeed);
+                
+                // m_XPos += newPositionDifference;
+            }
+
+            
 
             if (m_Animator != null && deltaTime > 0.0f)
             {
@@ -370,5 +415,7 @@ namespace HyperCasual.Runner
         {
             return playerLife < 0;
         }
+
+        
     }
 }
