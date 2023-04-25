@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.EnhancedTouch;
-using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
+//using UnityEngine.InputSystem.EnhancedTouch;
+//using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
 
 namespace HyperCasual.Runner
 {
@@ -37,15 +37,15 @@ namespace HyperCasual.Runner
             s_Instance = this;
         }
 
-        void OnEnable()
-        {
-            EnhancedTouchSupport.Enable();
-        }
+        // void OnEnable()
+        // {
+        //     EnhancedTouchSupport.Enable();
+        // }
 
-        void OnDisable()
-        {
-            EnhancedTouchSupport.Disable();
-        }
+        // void OnDisable()
+        // {
+        //     EnhancedTouchSupport.Disable();
+        // }
 
         void Update()
         {
@@ -54,50 +54,69 @@ namespace HyperCasual.Runner
                 return;
             }
 
-#if UNITY_EDITOR
-            m_InputPosition = Mouse.current.position.ReadValue();
+            // if (_canMove) 
+            // {
+            //     if (Input.GetKeyDown(KeyCode.D) && _lanes[_currentLane] != _lanes[0])
+            //     {
+            //         _canMove = false;
+            //         StartCaroutine(Move(Movement.Right));
+            //     }
+            //     if (Input.GetKeyDown(KeyCode.A) && _lanes[_currentLane] != _lanes[2])
+            //     {
+            //         _canMove = false;
+            //         StartCaroutine(Move(Movement.Left));
+            //     }
 
-            if (Mouse.current.leftButton.isPressed)
-            {
-                if (!m_HasInput)
-                {
-                    m_PreviousInputPosition = m_InputPosition;
-                }
-                m_HasInput = true;
-            }
-            else
-            {
-                m_HasInput = false;
-            }
-#else
-            if (Touch.activeTouches.Count > 0)
-            {
-                m_InputPosition = Touch.activeTouches[0].screenPosition;
-
-                if (!m_HasInput)
-                {
-                    m_PreviousInputPosition = m_InputPosition;
-                }
+            
+            // }
+            // if (Input.GetKeyDown(KeyCode.Space)) && IsGrounded()
+            // {
                 
-                m_HasInput = true;
-            }
-            else
-            {
-                m_HasInput = false;
-            }
-#endif
+            // }
+// #if UNITY_EDITOR
+//             m_InputPosition = Mouse.current.position.ReadValue();
 
-            if (m_HasInput)
-            {
-                float normalizedDeltaPosition = (m_InputPosition.x - m_PreviousInputPosition.x) / Screen.width * m_InputSensitivity;
-                PlayerController.Instance.SetDeltaPosition(normalizedDeltaPosition);
-            }
-            else
-            {
-                PlayerController.Instance.CancelMovement();
-            }
+//             if (Mouse.current.leftButton.isPressed)
+//             {
+//                 if (!m_HasInput)
+//                 {
+//                     m_PreviousInputPosition = m_InputPosition;
+//                 }
+//                 m_HasInput = true;
+//             }
+//             else
+//             {
+//                 m_HasInput = false;
+//             }
+// #else
+//             if (Touch.activeTouches.Count > 0)
+//             {
+//                 m_InputPosition = Touch.activeTouches[0].screenPosition;
 
-            m_PreviousInputPosition = m_InputPosition;
+//                 if (!m_HasInput)
+//                 {
+//                     m_PreviousInputPosition = m_InputPosition;
+//                 }
+                
+//                 m_HasInput = true;
+//             }
+//             else
+//             {
+//                 m_HasInput = false;
+//             }
+// #endif
+
+//             if (m_HasInput)
+//             {
+//                 float normalizedDeltaPosition = (m_InputPosition.x - m_PreviousInputPosition.x) / Screen.width * m_InputSensitivity;
+//                 PlayerController.Instance.SetDeltaPosition(normalizedDeltaPosition);
+//             }
+//             else
+//             {
+//                 PlayerController.Instance.CancelMovement();
+//             }
+
+//             m_PreviousInputPosition = m_InputPosition;
         }
     }
 }
