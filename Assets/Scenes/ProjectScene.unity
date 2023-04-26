@@ -1559,7 +1559,7 @@ MonoBehaviour:
   player: {fileID: 2123191528}
   distPerEnemy: 100
   enemy:
-  - {fileID: 9113561252080322206, guid: 8d38f98089da62842a37936c7bb1b9b9, type: 3}
+  - {fileID: 9113561252080322206, guid: 9423d80575567433da150a874853a811, type: 3}
   spawnTime: 1
 --- !u!1 &993741830
 GameObject:
