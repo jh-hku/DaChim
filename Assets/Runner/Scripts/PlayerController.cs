@@ -111,8 +111,10 @@ namespace HyperCasual.Runner
         /// <summary> The player's maximum X position. </summary>
         public float MaxXPosition => m_MaxXPosition;
 
+
         void Awake()
         {
+            
             if (s_Instance != null && s_Instance != this)
             {
                 Destroy(gameObject);
@@ -127,6 +129,9 @@ namespace HyperCasual.Runner
         /// <summary>
         /// Set up all necessary values for the PlayerController.
         /// </summary>
+        /// 
+        
+
         public void Initialize()
         {
             m_Transform = transform;
@@ -134,6 +139,7 @@ namespace HyperCasual.Runner
             m_DefaultScale = m_Transform.localScale;
             m_Scale = m_DefaultScale;
             m_TargetScale = m_Scale;
+
 
             if (m_SkinnedMeshRenderer != null)
             {
@@ -143,7 +149,9 @@ namespace HyperCasual.Runner
             {
                 m_StartHeight = 1.0f;
             }
-
+           
+            m_Animator.SetInteger("arms", 2);
+            m_Animator.SetInteger("legs", 2);
             ResetSpeed();
         }
 
@@ -270,17 +278,18 @@ namespace HyperCasual.Runner
             {
                 return;
             }
+            
 
 
             float deltaTime = Time.deltaTime;
 
             // Update Scale
 
-            if (!Approximately(m_Transform.localScale, m_TargetScale))
-            {
-                m_Scale = Vector3.Lerp(m_Scale, m_TargetScale, deltaTime * m_ScaleVelocity);
-                m_Transform.localScale = m_Scale;
-            }
+            //if (!Approximately(m_Transform.localScale, m_TargetScale))
+            //{
+            //    m_Scale = Vector3.Lerp(m_Scale, m_TargetScale, deltaTime * m_ScaleVelocity);
+            //    m_Transform.localScale = m_Scale;
+            //}
 
             // Update Speed
 
@@ -321,12 +330,12 @@ namespace HyperCasual.Runner
             }
             //velocity += gravity * Time.deltaTime;
             velocity = 0;
-            if (Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                Debug.Log("Up");
+            //if (Input.GetKeyDown(KeyCode.UpArrow))
+            //{
+            //    Debug.Log("Up");
                 
-                velocity = jumpForce;
-            }
+            //    velocity = jumpForce;
+            //}
             m_Transform.Translate(new Vector3(0,velocity,0) * Time.deltaTime);
 
             m_Transform.position = new Vector3(m_XPos, m_Transform.position.y, m_ZPos);
@@ -340,8 +349,8 @@ namespace HyperCasual.Runner
                 m_Transform.position += Vector3.right * laneDistance;
             }
 
-
             
+
             if (m_HasInput)
             {
                 // float horizontalSpeed = speed * m_HorizontalSpeedFactor;
@@ -356,18 +365,18 @@ namespace HyperCasual.Runner
 
             
 
-            if (m_Animator != null && deltaTime > 0.0f)
-            {
-                float distanceTravelledSinceLastFrame = (m_Transform.position - m_LastPosition).magnitude;
-                float distancePerSecond = distanceTravelledSinceLastFrame / deltaTime;
+            //if (m_Animator != null && deltaTime > 0.0f)
+            //{
+            //    float distanceTravelledSinceLastFrame = (m_Transform.position - m_LastPosition).magnitude;
+            //    float distancePerSecond = distanceTravelledSinceLastFrame / deltaTime;
 
-                m_Animator.SetFloat(s_Speed, distancePerSecond);
-            }
+            //    //m_Animator.SetFloat(s_Speed, distancePerSecond);
+            //}
 
-            if (m_Transform.position != m_LastPosition)
-            {
-                m_Transform.forward = Vector3.Lerp(m_Transform.forward, (m_Transform.position - m_LastPosition).normalized, speed);
-            }
+            //if (m_Transform.position != m_LastPosition)
+            //{
+            //    m_Transform.forward = Vector3.Lerp(m_Transform.forward, (m_Transform.position - m_LastPosition).normalized, speed);
+            //}
 
             m_LastPosition = m_Transform.position;
             m_TargetSpeed += deltaTime * m_AccelerationSpeed;

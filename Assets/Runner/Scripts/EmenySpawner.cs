@@ -72,7 +72,7 @@ public class EmenySpawner : MonoBehaviour
                 Vector3 spawnPoint = new Vector3(5 * i, -4.5f, transform.position.z);
 
                 // Create an enemy at the 'spawnPoint' position  
-                Instantiate(enemy[Random.Range(0, 4)], spawnPoint, Quaternion.identity);
+                Instantiate(enemy[Random.Range(0, enemy.Count)], spawnPoint, Quaternion.identity);
                 count++;
             }
             

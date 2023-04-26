@@ -25,7 +25,7 @@ public class MTRTunnel : MonoBehaviour
     {
         
         // Destroy gameObject 2 sec after player leave the trigger
-        if (other.gameObject.name == "Player")
+        if (other.gameObject.tag == "Player")
         {
             tunnelSpawner.SpawnMTRTunnel(true);
             Destroy(gameObject, 1);
