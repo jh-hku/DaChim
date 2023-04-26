@@ -38,7 +38,7 @@ public class Food : MonoBehaviour
     // Update is called once per frame
     
     private void Update() {
-        transform.Rotate(0, 90f * Time.deltaTime,0);
+        transform.Rotate(0, 180f * Time.deltaTime, 0);
     }
 
     private void FixedUpdate()
