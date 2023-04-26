@@ -23,9 +23,9 @@ public class PlayerStats : MonoBehaviour
         }
     }
     #endregion
+    HyperCasual.Runner.PlayerController playerController;
 
-    
-
+    public int coin_collected = 0;
     [SerializeField]
     private float health;
     [SerializeField]
@@ -70,5 +70,17 @@ public class PlayerStats : MonoBehaviour
             onHealthChangedCallback.Invoke();
     }
 
-    
+    #region Coin
+    public void IncrementCoin()
+    {
+        coin_collected++;
+        if (coin_collected == 10)
+        {
+            coin_collected = 0;
+            playerController.BeingCured();
+            Heal(1.0f);
+        }
+        Debug.Log(coin_collected);
+    }
+    #endregion
 }

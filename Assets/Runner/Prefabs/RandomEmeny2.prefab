@@ -7159,8 +7159,13 @@ GameObject:
   - component: {fileID: 8710339446206400023}
   - component: {fileID: 2508983210075826099}
   m_Layer: 0
+<<<<<<< HEAD:Assets/Runner/Prefabs/RandomEmeny2.prefab
   m_Name: RandomEmeny2
   m_TagString: Untagged
+=======
+  m_Name: RandomEmeny
+  m_TagString: HighObstacle
+>>>>>>> origin/thomas:Assets/Runner/Prefabs/RandomEmeny.prefab
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

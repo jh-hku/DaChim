@@ -18,7 +18,7 @@ public class TunnelSpawner : MonoBehaviour
         if (spawnItems)
         {
             //temp.GetComponent<GroundTile>().SpawnObstacle();
-            //temp.GetComponent<GroundTile>().SpawnCoins();
+            temp.GetComponent<MTRTunnel>().SpawnCoins();
         }
     }
 

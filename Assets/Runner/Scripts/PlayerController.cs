@@ -13,7 +13,6 @@ namespace HyperCasual.Runner
     public class PlayerController : MonoBehaviour
     {
         private int playerLife = 10;
-
         /// <summary> Returns the PlayerController. </summary>
         public static PlayerController Instance => s_Instance;
         static PlayerController s_Instance;
@@ -110,6 +109,7 @@ namespace HyperCasual.Runner
 
         /// <summary> The player's maximum X position. </summary>
         public float MaxXPosition => m_MaxXPosition;
+
 
 
         void Awake()
