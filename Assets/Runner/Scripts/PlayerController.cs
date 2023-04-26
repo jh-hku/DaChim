@@ -73,7 +73,7 @@ namespace HyperCasual.Runner
         Vector3 m_DefaultScale;
 
         private int desiredLane = 1; //0Left, 1Mid, 2Right
-        public float laneDistance = 6; //dis btwn 2 lanes
+        public float laneDistance = 5.5f; //dis btwn 2 lanes
         public float jumpForce = 2000;
         public float gravity = -9.81f;
         float velocity;

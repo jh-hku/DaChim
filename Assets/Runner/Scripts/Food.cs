@@ -23,7 +23,7 @@ public class Food : MonoBehaviour
             PlayerStats.Instance.Heal(1.0f);
             Debug.Log("Picked Food");
         }
-        else if (collision.gameObject.name == "HighObstacle")
+        else if (collision.gameObject.tag == "HighObstacle")
         {
             Destroy(gameObject);
         }
@@ -37,6 +37,10 @@ public class Food : MonoBehaviour
     }
     // Update is called once per frame
     
+    private void Update() {
+        transform.Rotate(0, 90f * Time.deltaTime,0);
+    }
+
     private void FixedUpdate()
     {
         //Vector3 velocity = new Vector3(0, 0, -speed);

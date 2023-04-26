@@ -10,7 +10,7 @@ public class FoodSpawner : MonoBehaviour
     Vector3 offset;
 
    
-    public float distPerFood = 100f;
+    public float distPerFood = 200f;
     private float distanceMoved = 0f;
     private Vector3 spawnPosition;
     
@@ -68,7 +68,7 @@ public class FoodSpawner : MonoBehaviour
             float prob = Random.Range(0f, 1f);
 
             if (prob > 0.5 & count < 2) {
-                Vector3 spawnPoint = new Vector3(5 * i, -4, transform.position.z);
+                Vector3 spawnPoint = new Vector3(5 * i, -4.5f, transform.position.z);
 
              
                 Instantiate(food[Random.Range(0, 5)], spawnPoint, Quaternion.identity);
@@ -79,7 +79,7 @@ public class FoodSpawner : MonoBehaviour
 
         
         if (count == 0) {
-            Vector3 spawnPoint = new Vector3(5 * Random.Range(x1, x2), -4, transform.position.z);
+            Vector3 spawnPoint = new Vector3(5 * Random.Range(x1, x2), -4.5f, transform.position.z);
 
            
             Instantiate(food[Random.Range(0, 5)], spawnPoint, Quaternion.identity);

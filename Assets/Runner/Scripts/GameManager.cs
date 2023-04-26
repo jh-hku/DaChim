@@ -37,6 +37,8 @@ namespace HyperCasual.Runner
         /// or has ended.
         /// </summary>
         public bool IsPlaying => m_IsPlaying;
+        public GameObject endPanel;
+        
         bool m_IsPlaying;
         // GameObject m_CurrentLevelGO;
         GameObject m_CurrentTerrainGO;
@@ -55,7 +57,7 @@ namespace HyperCasual.Runner
                 Destroy(gameObject);
                 return;
             }
-
+            endPanel.SetActive(false);
             s_Instance = this;
 
 #if UNITY_EDITOR
@@ -66,6 +68,16 @@ namespace HyperCasual.Runner
             //     m_LevelEditorMode = true;
             // }
 #endif
+        }
+
+        void Update()
+        {   
+            Debug.Log(PlayerStats.Instance.Health);
+            if ( PlayerStats.Instance.Health == 0f)
+            {   
+                Debug.Log("Lost");
+                Lose();
+            }
         }
 
         /// <summary>
@@ -295,6 +307,8 @@ namespace HyperCasual.Runner
         public void Lose()
         {
             m_LoseEvent.Raise();
+            Time.timeScale = 0;
+            endPanel.SetActive(true); 
 
 #if UNITY_EDITOR
             // if (m_LevelEditorMode)
@@ -302,6 +316,16 @@ namespace HyperCasual.Runner
             //     ResetLevel();
             // }
 #endif
+        }
+
+        public void ReplayGame()
+        {
+                SceneManager.LoadScene("ProjectScene")
+        }
+
+        public void QuitGame()
+        {
+                Application.Quit();
         }
     }
 }

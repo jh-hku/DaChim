@@ -8,6 +8,8 @@ public class PlayerStats : MonoBehaviour
 {
     public delegate void OnHealthChangedDelegate();
     public OnHealthChangedDelegate onHealthChangedCallback;
+    //HyperCasual.Runner.GameManager gameMan;
+    
 
     #region Sigleton
     private static PlayerStats instance;
@@ -22,6 +24,8 @@ public class PlayerStats : MonoBehaviour
     }
     #endregion
 
+    
+
     [SerializeField]
     private float health;
     [SerializeField]
@@ -33,6 +37,7 @@ public class PlayerStats : MonoBehaviour
     public float MaxHealth { get { return maxHealth; } }
     public float MaxTotalHealth { get { return maxTotalHealth; } }
 
+    
     public void Heal(float health)
     {
         this.health += health;
@@ -64,4 +69,6 @@ public class PlayerStats : MonoBehaviour
         if (onHealthChangedCallback != null)
             onHealthChangedCallback.Invoke();
     }
+
+    
 }
