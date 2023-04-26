@@ -72,7 +72,7 @@ public class EmenySpawner : MonoBehaviour
                 Vector3 spawnPoint = new Vector3(5 * i, -4.5f, transform.position.z);
 
                 // Create an enemy at the 'spawnPoint' position  
-                Instantiate(AddClothes(enemy[Random.Range(0, enemy.Count)]), spawnPoint, Quaternion.identity);
+                Instantiate(enemy[Random.Range(0, enemy.Count)], spawnPoint, Quaternion.identity);
                 count++;
             }
             
@@ -83,48 +83,10 @@ public class EmenySpawner : MonoBehaviour
             Vector3 spawnPoint = new Vector3(5 * Random.Range(x1, x2), -4.5f, transform.position.z);
 
             // Create an enemy at the 'spawnPoint' position  
-            Instantiate(AddClothes(enemy[Random.Range(0, 4)]), spawnPoint, Quaternion.identity);
+            Instantiate(enemy[Random.Range(0, 4)], spawnPoint, Quaternion.identity);
 
         }
         
 
-    }
-
-    GameObject AddClothes(GameObject newEmemy)
-    {
-        int textureCategory = 3;
-        Random.InitState((int) System.DateTime.Now.Ticks);
-        for (int i=0 ; i<textureCategory ; i++)
-        {
-            if (i != 1) {
-                var randNum = Random.Range(0, newEmemy.transform.GetChild(0).GetChild(i).transform.childCount);
-                for (int k=0 ; k<newEmemy.transform.GetChild(0).GetChild(i).transform.childCount ; k++)
-                {
-                    if (k != randNum) 
-                    {
-                        newEmemy.transform.GetChild(0).GetChild(i).GetChild(k).gameObject.SetActive(false);
-                    } else {
-                        newEmemy.transform.GetChild(0).GetChild(i).GetChild(randNum).gameObject.SetActive(true);
-                    }
-                }
-            } else {
-                var clothesPartsNum = newEmemy.transform.GetChild(0).GetChild(i).childCount;
-                for (int j=0 ; j<clothesPartsNum ; j++) 
-                {
-                    var randNum = Random.Range(0, newEmemy.transform.GetChild(0).GetChild(i).GetChild(j).transform.childCount);
-                    for (int k=0 ; k<newEmemy.transform.GetChild(0).GetChild(i).GetChild(j).transform.childCount ; k++)
-                    {
-                        if (k != randNum) 
-                        {
-                            newEmemy.transform.GetChild(0).GetChild(i).GetChild(j).GetChild(k).gameObject.SetActive(false);
-                        } else {
-                            newEmemy.transform.GetChild(0).GetChild(i).GetChild(j).GetChild(randNum).gameObject.SetActive(true);
-                        }
-                    }
-
-                }
-            }
-        }
-        return newEmemy;
     }
 }
