@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using HyperCasual.Core;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -38,8 +41,13 @@ namespace HyperCasual.Runner
         /// </summary>
         public bool IsPlaying => m_IsPlaying;
         public GameObject endPanel;
+        public Timer timer;
+        public TextMeshProUGUI finalTimeText;
+        public TextMeshProUGUI curTimeText;
         
         bool m_IsPlaying;
+        public Button replayButton;
+        public Button quitButton;
         // GameObject m_CurrentLevelGO;
         GameObject m_CurrentTerrainGO;
         // GameObject m_LevelMarkersGO;
@@ -59,6 +67,9 @@ namespace HyperCasual.Runner
             }
             endPanel.SetActive(false);
             s_Instance = this;
+            Time.timeScale = 1;
+            replayButton.onClick.AddListener(ReplayGame);
+            quitButton.onClick.AddListener(QuitGame);
 
 #if UNITY_EDITOR
             // If LevelManager already exists, user is in the LevelEditorWindow
@@ -78,6 +89,11 @@ namespace HyperCasual.Runner
                 Debug.Log("Lost");
                 Lose();
             }
+            float curTime = timer.GetElapsedTime();
+            Debug.Log(curTime);
+            curTimeText.text = string.Format("{0:00}:{1:00}", Mathf.FloorToInt(curTime / 60), Mathf.FloorToInt(curTime % 60));
+    
+        
         }
 
         /// <summary>
@@ -309,6 +325,10 @@ namespace HyperCasual.Runner
             m_LoseEvent.Raise();
             Time.timeScale = 0;
             endPanel.SetActive(true); 
+            float finalTime = timer.GetElapsedTime();
+            Debug.Log(finalTime);
+            finalTimeText.text = string.Format("Final Time: {0:00}:{1:00}", Mathf.FloorToInt(finalTime / 60), Mathf.FloorToInt(finalTime % 60));
+    
 
 #if UNITY_EDITOR
             // if (m_LevelEditorMode)
@@ -320,7 +340,7 @@ namespace HyperCasual.Runner
 
         public void ReplayGame()
         {
-                SceneManager.LoadScene("ProjectScene")
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
         public void QuitGame()
