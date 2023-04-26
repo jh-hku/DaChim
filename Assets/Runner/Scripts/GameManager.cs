@@ -26,6 +26,8 @@ namespace HyperCasual.Runner
         public static GameManager Instance => s_Instance;
         static GameManager s_Instance;
 
+        public int coin_collected = 0;
+
         [SerializeField]
         AbstractGameEvent m_WinEvent;
 
@@ -86,15 +88,14 @@ namespace HyperCasual.Runner
 
         void Update()
         {   
-            if (Time.timeScale == 0) { return; }
-            Debug.Log(PlayerStats.Instance.Health);
+            //Debug.Log(PlayerStats.Instance.Health);
             if ( PlayerStats.Instance.Health == 0f)
             {   
-                Debug.Log("Lost");
+                //Debug.Log("Lost");
                 Lose();
             }
             float curTime = timer.GetElapsedTime();
-            Debug.Log(curTime);
+            //Debug.Log(curTime);
             curTimeText.text = string.Format("{0:00}:{1:00}", Mathf.FloorToInt(curTime / 60), Mathf.FloorToInt(curTime % 60));
     
         
@@ -133,6 +134,13 @@ namespace HyperCasual.Runner
             // {
             //     LevelManager.Instance.ResetSpawnables();
             // }
+        }
+
+        public void IncrementCoin() {
+            coin_collected++;
+            if (coin_collected == 10) {
+                coin_collected = 0;
+            }
         }
 
         /// <summary>
