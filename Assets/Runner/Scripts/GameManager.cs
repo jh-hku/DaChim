@@ -40,6 +40,7 @@ namespace HyperCasual.Runner
         /// or has ended.
         /// </summary>
         public bool IsPlaying => m_IsPlaying;
+        public GameObject startPanel;
         public GameObject endPanel;
         public Timer timer;
         public TextMeshProUGUI finalTimeText;
@@ -48,6 +49,7 @@ namespace HyperCasual.Runner
         bool m_IsPlaying;
         public Button replayButton;
         public Button quitButton;
+        public Button startButton;
         // GameObject m_CurrentLevelGO;
         GameObject m_CurrentTerrainGO;
         // GameObject m_LevelMarkersGO;
@@ -60,7 +62,7 @@ namespace HyperCasual.Runner
 
         void Start()
         {
-            // Time.timeScale = 0;
+            Time.timeScale = 0;
             if (s_Instance != null && s_Instance != this)
             {
                 Destroy(gameObject);
@@ -68,6 +70,7 @@ namespace HyperCasual.Runner
             }
             endPanel.SetActive(false);
             s_Instance = this;
+            startButton.onClick.AddListener(BeginGame);
             replayButton.onClick.AddListener(ReplayGame);
             quitButton.onClick.AddListener(QuitGame);
 
@@ -337,6 +340,14 @@ namespace HyperCasual.Runner
             //     ResetLevel();
             // }
 #endif
+        }
+
+        public void BeginGame() {
+            // var panel = FindObjectOfType<GameStartPanel>();
+            // GameStartPanel.Instance.StartGame();
+            Time.timeScale = 1;
+            startPanel.SetActive(false);
+            StartGame();
         }
 
         public void ReplayGame()

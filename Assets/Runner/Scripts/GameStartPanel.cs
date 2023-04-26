@@ -7,6 +7,17 @@ public class GameStartPanel : MonoBehaviour
 {
     private bool mFaded = false;
     public float Duration = 0.4f;
+
+    private static GameStartPanel instance;
+    public static GameStartPanel Instance
+    {
+        get
+        {
+            if (instance == null)
+                instance = FindObjectOfType<GameStartPanel>();
+            return instance;
+        }
+    }
     // public GameObject startButton;
 
     // Start is called before the first frame update

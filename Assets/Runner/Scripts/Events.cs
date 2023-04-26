@@ -7,8 +7,7 @@ public class Events : MonoBehaviour
 {
    public void StartGame()
    {
-        var panel = FindObjectOfType<GameStartPanel>();
-        panel.StartGame();
+        FindObjectOfType<GameStartPanel>().StartGame();
    }
 
    public void ReplayGame()
