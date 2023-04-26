@@ -7,6 +7,10 @@ TagManager:
   - HighObstacle
   - LowObstacle
   - LevelParent
+  - stealingpoint
+  - sittingpoint
+  - pickuppoint
+  - waypoint
   layers:
   - Default
   - TransparentFX
