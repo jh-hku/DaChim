@@ -337,7 +337,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3248845859025975956
 Transform:
   m_ObjectHideFlags: 0
@@ -811,7 +811,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8958854333488504791
 Transform:
   m_ObjectHideFlags: 0
@@ -825,7 +825,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3444702352368949818}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &510497654981839887
 SkinnedMeshRenderer:
@@ -1424,7 +1424,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &478746719988384644
 Transform:
   m_ObjectHideFlags: 0
@@ -3244,7 +3244,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6361628340824951908
 Transform:
   m_ObjectHideFlags: 0
@@ -4194,7 +4194,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6227544357564689647
 Transform:
   m_ObjectHideFlags: 0
@@ -4236,7 +4236,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6328542685086900669
 Transform:
   m_ObjectHideFlags: 0
@@ -4283,10 +4283,10 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6294104419567385901}
-  - {fileID: 1170841796468092840}
-  - {fileID: 4063003653176467691}
   - {fileID: 7997372410476061410}
   - {fileID: 8958854333488504791}
+  - {fileID: 1170841796468092840}
+  - {fileID: 4063003653176467691}
   m_Father: {fileID: 3211849189717612372}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4320,7 +4320,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3444702352368949818}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &7873624278339937684
 SkinnedMeshRenderer:
@@ -4526,7 +4526,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4428211453926976886
 Transform:
   m_ObjectHideFlags: 0
@@ -4650,7 +4650,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3444702352368949818}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &2618782680523444677
 SkinnedMeshRenderer:
@@ -4778,7 +4778,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4227358743300534680
 Transform:
   m_ObjectHideFlags: 0
@@ -5681,7 +5681,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5359501620723483561
 Transform:
   m_ObjectHideFlags: 0
@@ -6373,7 +6373,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8028461968455124801
 Transform:
   m_ObjectHideFlags: 0
@@ -6424,7 +6424,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3444702352368949818}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &6754604899376153534
 SkinnedMeshRenderer:
@@ -6808,7 +6808,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7807101097280937673
 Transform:
   m_ObjectHideFlags: 0
@@ -6919,7 +6919,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2865912175682002427
 Transform:
   m_ObjectHideFlags: 0
@@ -7159,13 +7159,8 @@ GameObject:
   - component: {fileID: 8710339446206400023}
   - component: {fileID: 2508983210075826099}
   m_Layer: 0
-<<<<<<< HEAD:Assets/Runner/Prefabs/RandomEmeny2.prefab
   m_Name: RandomEmeny2
   m_TagString: Untagged
-=======
-  m_Name: RandomEmeny
-  m_TagString: HighObstacle
->>>>>>> origin/thomas:Assets/Runner/Prefabs/RandomEmeny.prefab
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
