@@ -20,6 +20,7 @@ public class Food : MonoBehaviour
         {
             Destroy(gameObject);
             playerController.BeingCured();
+            PlayerStats.Instance.Heal(1.0f);
             Debug.Log("Picked Food");
         }
         else if (collision.gameObject.name == "HighObstacle")
