@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1021949262770465885}
   - component: {fileID: 9091147660502587300}
-  - component: {fileID: 6483628337455534911}
-  - component: {fileID: 9108350124528120689}
+  - component: {fileID: 1507059950405081944}
+  - component: {fileID: 6841022147955000745}
   m_Layer: 0
   m_Name: Collectable_Coin
   m_TagString: Untagged
@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 314387739941697089}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.033333335}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8247195458679775624}
@@ -43,12 +43,12 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 314387739941697089}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6483628337455534911
+--- !u!114 &1507059950405081944
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -57,32 +57,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 314387739941697089}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 818a287135adb43b7b2081dfbdb7b2a6, type: 3}
+  m_Script: {fileID: 11500000, guid: e9bde4826e2fcaa4ea4fc524c99015a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SnapToGrid: 1
-  m_Sound: 1
-  m_Event: {fileID: 11400000, guid: a796f105604544326aea1a54797b65ba, type: 2}
-  m_Count: 1
---- !u!114 &9108350124528120689
-MonoBehaviour:
+  turnSpeed: 90
+--- !u!54 &6841022147955000745
+Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 314387739941697089}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dba4ae32a6c4e4559afadd205d679bfd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UsePositionBasedOffset: 0
-  PositionBasedScale: 2
-  Bob: 0
-  BobSpeed: 5
-  BobHeight: 0.2
-  Spin: 1
-  SpinSpeed: 180
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 14
+  m_CollisionDetection: 0
 --- !u!1 &3044849094365238405
 GameObject:
   m_ObjectHideFlags: 0
