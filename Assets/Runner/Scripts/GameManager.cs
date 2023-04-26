@@ -55,11 +55,12 @@ namespace HyperCasual.Runner
         List<Spawnable> m_ActiveSpawnables = new List<Spawnable>();
 
 // #if UNITY_EDITOR
-//         bool m_LevelEditorMode;
+//         bool m_LevelEditorMode;s
 // #endif
 
-        void Awake()
+        void Start()
         {
+            // Time.timeScale = 0;
             if (s_Instance != null && s_Instance != this)
             {
                 Destroy(gameObject);
@@ -67,7 +68,6 @@ namespace HyperCasual.Runner
             }
             endPanel.SetActive(false);
             s_Instance = this;
-            Time.timeScale = 1;
             replayButton.onClick.AddListener(ReplayGame);
             quitButton.onClick.AddListener(QuitGame);
 
@@ -75,7 +75,7 @@ namespace HyperCasual.Runner
             // If LevelManager already exists, user is in the LevelEditorWindow
             // if (LevelManager.Instance != null)
             // {
-                StartGame();
+                // StartGame();
             //     m_LevelEditorMode = true;
             // }
 #endif
@@ -83,6 +83,7 @@ namespace HyperCasual.Runner
 
         void Update()
         {   
+            if (Time.timeScale == 0) { return; }
             Debug.Log(PlayerStats.Instance.Health);
             if ( PlayerStats.Instance.Health == 0f)
             {   
