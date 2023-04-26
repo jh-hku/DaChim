@@ -39,7 +39,7 @@ public class Enemy : MonoBehaviour
         //rb.velocity.z = -speed * Time.fixedDeltaTime * 50 ;
         Vector3 velocity = rb.velocity;
         velocity.z = -speed;
-        rb.velocity = velocity;
+        //rb.velocity = velocity;
     }
     
 
