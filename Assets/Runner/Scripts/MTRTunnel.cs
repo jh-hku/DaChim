@@ -7,7 +7,7 @@ public class MTRTunnel : MonoBehaviour
 
     TunnelSpawner tunnelSpawner;
     [SerializeField] GameObject coinPrefab;
-    [SerializeField] float leftRightPosition = 3.3f;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -43,7 +43,7 @@ public class MTRTunnel : MonoBehaviour
 
     public void SpawnCoins()
     {
-        int coinsToSpawn = 10;
+        int coinsToSpawn = 5;
         for (int i = 0; i < coinsToSpawn; i++)
         {
             GameObject temp = Instantiate(coinPrefab, transform);
@@ -53,9 +53,10 @@ public class MTRTunnel : MonoBehaviour
 
     Vector3 GetRandomPointInCollider(Collider collider)
     {
-        int random_XPos = Random.Range(-1, 2);
+        int random_XPos = Random.Range(-1,2);
+        
         Vector3 point = new Vector3(
-            random_XPos * leftRightPosition,
+            random_XPos * 5,
             -4f,
             Random.Range(collider.bounds.min.z, collider.bounds.max.z)
             );

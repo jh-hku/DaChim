@@ -10,14 +10,14 @@ public class FoodSpawner : MonoBehaviour
     Vector3 offset;
 
    
-    public float distPerFood = 200f;
+    public float distPerFood = 1500f;
     private float distanceMoved = 0f;
     private Vector3 spawnPosition;
     
     public List<GameObject> food;
 
     // Variable to know how fast we should create new enemies
-    public float spawnTime = 0.01f;
+    public float spawnTime = 0.1f;
     int randNum;
 
     // Start is called before the first frame update

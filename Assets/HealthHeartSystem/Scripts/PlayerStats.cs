@@ -36,7 +36,7 @@ public class PlayerStats : MonoBehaviour
     public float Health { get { return health; } }
     public float MaxHealth { get { return maxHealth; } }
     public float MaxTotalHealth { get { return maxTotalHealth; } }
-
+    public int CoinCollected { get { return coin_collected; }}
     
     public void Heal(float health)
     {
@@ -74,7 +74,7 @@ public class PlayerStats : MonoBehaviour
     public void IncrementCoin()
     {
         coin_collected++;
-        if (coin_collected == 10)
+        if (coin_collected == 100)
         {
             coin_collected = 0;
             playerController.BeingCured();

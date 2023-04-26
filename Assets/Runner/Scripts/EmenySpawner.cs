@@ -10,14 +10,14 @@ public class EmenySpawner : MonoBehaviour
     Vector3 offset;
 
     // for spawning enemy
-    public float distPerEnemy = 100f;
+    public float distPerEnemy =5f;
     private float distanceMoved = 0f;
     private Vector3 spawnPosition;
     // Variable to store the enemy prefab
     public List<GameObject> enemy;
 
     // Variable to know how fast we should create new enemies
-    public float spawnTime = 0.01f;
+    public float spawnTime = 0.001f;
     int randNum;
 
     // Start is called before the first frame update

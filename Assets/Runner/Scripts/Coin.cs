@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Coin : MonoBehaviour
 {
     [SerializeField] float turnSpeed = 90f;
-
+    public TextMeshProUGUI coinNum;
+    
     private void OnTriggerEnter(Collider other)
     {
         //Debug.Log("a");
@@ -27,7 +29,10 @@ public class Coin : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {   
         transform.Rotate(0, 0, turnSpeed * Time.deltaTime);
+        int numCoin = PlayerStats.Instance.coin_collected;
+        coinNum.text = numCoin.ToString() + "/100";
+
     }
 }

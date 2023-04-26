@@ -30,10 +30,10 @@ namespace HyperCasual.Runner
         float m_CustomPlayerSpeed = 10.0f;
 
         [SerializeField]
-        float m_AccelerationSpeed = 10.0f;
+        float m_AccelerationSpeed = 3.0f;
 
         [SerializeField]
-        float m_DecelerationSpeed = 20.0f;
+        float m_DecelerationSpeed = 10.0f;
 
         [SerializeField]
         float m_HorizontalSpeedFactor = 0.5f;
