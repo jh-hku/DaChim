@@ -17,6 +17,8 @@ namespace HyperCasual.Runner
         public static PlayerController Instance => s_Instance;
         static PlayerController s_Instance;
 
+        public AudioSource audioPlayer;
+
         [SerializeField]
         Animator m_Animator;
 
@@ -402,6 +404,7 @@ namespace HyperCasual.Runner
         public void GotHitted()
         {
             DecreasePlayerLife(1);
+            audioPlayer.Play();
         }
         public void BeingCured()
         {

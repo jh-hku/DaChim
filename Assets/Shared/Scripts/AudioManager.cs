@@ -42,7 +42,6 @@ namespace HyperCasual.Runner
             set
             {
                 m_AudioSettings.EnableMusic = value;
-                m_MusicSource.mute = !value;
             }
         }
         
@@ -55,7 +54,6 @@ namespace HyperCasual.Runner
             set
             {
                 m_AudioSettings.EnableSfx = value;
-                m_EffectSource.mute = !value;
             }
         }
 
