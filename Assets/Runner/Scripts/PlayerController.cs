@@ -276,7 +276,6 @@ namespace HyperCasual.Runner
         {
             if (PlayerStats.Instance.Health == 0f) 
             {
-                Debug.Log("a");
                 return;
             }
             
