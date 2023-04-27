@@ -55,7 +55,7 @@ public class MTRTunnel : MonoBehaviour
     {
         int random_XPos = Random.Range(-1, 2);
         Vector3 point = new Vector3(
-            random_XPos * leftRightPosition,
+            random_XPos * 4.5f,
             -4f,
             Random.Range(collider.bounds.min.z, collider.bounds.max.z)
             );

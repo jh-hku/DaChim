@@ -46,7 +46,7 @@ namespace HyperCasual.Runner
         public GameObject endPanel;
         public Timer timer;
         public TextMeshProUGUI finalTimeText;
-        public TextMeshProUGUI curTimeText;
+        public Text curTimeText;
         
         bool m_IsPlaying;
         public Button replayButton;
