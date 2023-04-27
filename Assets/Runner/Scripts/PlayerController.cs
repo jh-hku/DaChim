@@ -274,7 +274,7 @@ namespace HyperCasual.Runner
 
         void Update()
         {
-            if (IsDied()) 
+            if (PlayerStats.Instance.Health == 0f) 
             {
                 return;
             }
@@ -423,7 +423,7 @@ namespace HyperCasual.Runner
         }
         public bool IsDied()
         {
-            return playerLife < 0;
+            return playerLife <= 0;
         }
 
         
