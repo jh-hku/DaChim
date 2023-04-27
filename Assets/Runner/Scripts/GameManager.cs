@@ -45,7 +45,7 @@ namespace HyperCasual.Runner
         public bool IsPlaying => m_IsPlaying;
         public GameObject endPanel;
         public Timer timer;
-        public TextMeshProUGUI finalTimeText;
+        public Text finalTimeText;
         public Text curTimeText;
         
         bool m_IsPlaying;
@@ -56,6 +56,12 @@ namespace HyperCasual.Runner
         // GameObject m_LevelMarkersGO;
 
         List<Spawnable> m_ActiveSpawnables = new List<Spawnable>();
+
+        public GameObject startPanel;
+        public Button startButton;
+
+        public List<GameObject> elements = new List<GameObject>();
+        
 
 // #if UNITY_EDITOR
 //         bool m_LevelEditorMode;
@@ -70,7 +76,8 @@ namespace HyperCasual.Runner
             }
             endPanel.SetActive(false);
             s_Instance = this;
-            Time.timeScale = 1;
+            Time.timeScale = 0;
+            startButton.onClick.AddListener(BeginGame);
             replayButton.onClick.AddListener(ReplayGame);
             quitButton.onClick.AddListener(QuitGame);
 
@@ -246,6 +253,7 @@ namespace HyperCasual.Runner
         {
             ResetLevel();
             m_IsPlaying = true;
+            Time.timeScale = 1;
         }
 
         /// <summary>
@@ -329,7 +337,11 @@ namespace HyperCasual.Runner
         {
             m_LoseEvent.Raise();
             Time.timeScale = 0;
-            endPanel.SetActive(true); 
+            endPanel.SetActive(true);
+            foreach (var e in elements)
+            {
+                e.SetActive(false);
+            }
             float finalTime = timer.GetElapsedTime();
             //Debug.Log(finalTime);
             finalTimeText.text = string.Format("Final Time: {0:00}:{1:00}", Mathf.FloorToInt(finalTime / 60), Mathf.FloorToInt(finalTime % 60));
@@ -341,6 +353,14 @@ namespace HyperCasual.Runner
             //     ResetLevel();
             // }
 #endif
+        }
+
+        public void BeginGame() {
+            // var panel = FindObjectOfType<GameStartPanel>();
+            // GameStartPanel.Instance.StartGame();
+            Time.timeScale = 1;
+            startPanel.SetActive(false);
+            StartGame();
         }
 
         public void ReplayGame()
