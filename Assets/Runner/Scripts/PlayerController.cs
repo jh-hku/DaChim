@@ -16,8 +16,7 @@ namespace HyperCasual.Runner
         /// <summary> Returns the PlayerController. </summary>
         public static PlayerController Instance => s_Instance;
         static PlayerController s_Instance;
-
-        public AudioSource audioPlayer;
+        public AudioSource audio;
 
         [SerializeField]
         Animator m_Animator;
@@ -132,7 +131,6 @@ namespace HyperCasual.Runner
         /// Set up all necessary values for the PlayerController.
         /// </summary>
         ///
-
 
         public void Initialize()
         {
@@ -399,6 +397,14 @@ namespace HyperCasual.Runner
         bool Approximately(Vector3 a, Vector3 b)
         {
             return Mathf.Approximately(a.x, b.x) && Mathf.Approximately(a.y, b.y) && Mathf.Approximately(a.z, b.z);
+        }
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            if (collision.gameObject.tag == "Enemy")
+            {
+                audio.Play();
+            }
         }
 
         //public void GotHitted()

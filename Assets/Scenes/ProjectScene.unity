@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44671863, g: 0.496575, b: 0.5750147, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1242,6 +1242,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 857437054333850566, guid: f5969163fd24f4df09df4753595040b4,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 85105595da6ca486cbc594c3e107b8df, type: 3}
+    - target: {fileID: 857437054333850566, guid: f5969163fd24f4df09df4753595040b4,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 885773408479466227, guid: f5969163fd24f4df09df4753595040b4,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 735da840115134fc8a4f05665c2cf722, type: 3}
     - target: {fileID: 1457152701564224329, guid: f5969163fd24f4df09df4753595040b4,
         type: 3}
       propertyPath: m_RootOrder
@@ -2012,7 +2027,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec0b64c0b1dccc64d91eee52d85267bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinBar: {fileID: 839050245}
+  coinBar: {fileID: 0}
   coin_collected: 0
   health: 1
   maxHealth: 3
@@ -2648,6 +2663,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 772645ebc958145c092d6949f827e632, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioPlayer: {fileID: 0}
   m_Animator: {fileID: 2123191527}
   m_SkinnedMeshRenderer: {fileID: 2078172179}
   m_PlayerSpeed: 1
