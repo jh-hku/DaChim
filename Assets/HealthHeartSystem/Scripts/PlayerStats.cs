@@ -80,7 +80,7 @@ public class PlayerStats : MonoBehaviour
             playerController.BeingCured();
             Heal(1.0f);
         }
-        Debug.Log(coin_collected);
+        //Debug.Log(coin_collected);
     }
     #endregion
 }

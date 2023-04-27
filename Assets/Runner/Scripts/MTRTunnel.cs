@@ -7,7 +7,7 @@ public class MTRTunnel : MonoBehaviour
 
     TunnelSpawner tunnelSpawner;
     [SerializeField] GameObject coinPrefab;
-    [SerializeField] float leftRightPosition = 3.3f;
+    [SerializeField] float leftRightPosition = 5f;
     // Start is called before the first frame update
     void Start()
     {
