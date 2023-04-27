@@ -16,11 +16,11 @@ public class Food : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "Player")
+        if (collision.gameObject.tag == "Player")
         {
             Destroy(gameObject);
-            playerController.BeingCured();
-            PlayerStats.Instance.Heal(1.0f);
+            //playerController.BeingCured();
+            PlayerStats.Instance.Heal(0.5f);
             Debug.Log("Picked Food");
         }
         else if (collision.gameObject.tag == "HighObstacle")

@@ -23,10 +23,11 @@ namespace HyperCasual.Runner
         /// <summary>
         /// Returns the GameManager.
         /// </summary>
+        /// 
+
         public static GameManager Instance => s_Instance;
         static GameManager s_Instance;
 
-        public int coin_collected = 0;
 
         [SerializeField]
         AbstractGameEvent m_WinEvent;
@@ -133,12 +134,7 @@ namespace HyperCasual.Runner
             // }
         }
 
-        public void IncrementCoin() {
-            coin_collected++;
-            if (coin_collected == 10) {
-                coin_collected = 0;
-            }
-        }
+        
 
         /// <summary>
         /// This method loads and instantiates the level defined in levelDefinition,
@@ -335,7 +331,7 @@ namespace HyperCasual.Runner
             Time.timeScale = 0;
             endPanel.SetActive(true); 
             float finalTime = timer.GetElapsedTime();
-            Debug.Log(finalTime);
+            //Debug.Log(finalTime);
             finalTimeText.text = string.Format("Final Time: {0:00}:{1:00}", Mathf.FloorToInt(finalTime / 60), Mathf.FloorToInt(finalTime % 60));
     
 

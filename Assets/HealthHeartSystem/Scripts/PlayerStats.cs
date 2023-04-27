@@ -8,6 +8,7 @@ public class PlayerStats : MonoBehaviour
 {
     public delegate void OnHealthChangedDelegate();
     public OnHealthChangedDelegate onHealthChangedCallback;
+    [SerializeField] CoinBar coinBar;
     //HyperCasual.Runner.GameManager gameMan;
     
 
@@ -41,6 +42,7 @@ public class PlayerStats : MonoBehaviour
     public void Heal(float health)
     {
         this.health += health;
+        Debug.Log(health);
         ClampHealth();
     }
 
@@ -59,12 +61,13 @@ public class PlayerStats : MonoBehaviour
 
             if (onHealthChangedCallback != null)
                 onHealthChangedCallback.Invoke();
-        }   
+        }
     }
 
     void ClampHealth()
     {
         health = Mathf.Clamp(health, 0, maxHealth);
+        //Debug.Log(health);
 
         if (onHealthChangedCallback != null)
             onHealthChangedCallback.Invoke();
@@ -74,13 +77,14 @@ public class PlayerStats : MonoBehaviour
     public void IncrementCoin()
     {
         coin_collected++;
-        if (coin_collected == 10)
+        coinBar.CoinAdding(1f);
+        if (coin_collected == 100)
         {
             coin_collected = 0;
-            playerController.BeingCured();
+            //playerController.BeingCured();
             Heal(1.0f);
         }
-        Debug.Log(coin_collected);
+        //Debug.Log(coin_collected);
     }
     #endregion
 }

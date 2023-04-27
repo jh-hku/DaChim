@@ -7,7 +7,7 @@ namespace HyperCasual.Runner
 {
     /// <summary>
     /// A class used to control a player in a Runner
-    /// game. Includes logic for player movement as well as 
+    /// game. Includes logic for player movement as well as
     /// other gameplay logic.
     /// </summary>
     public class PlayerController : MonoBehaviour
@@ -116,7 +116,7 @@ namespace HyperCasual.Runner
 
         void Awake()
         {
-            
+
             if (s_Instance != null && s_Instance != this)
             {
                 Destroy(gameObject);
@@ -131,8 +131,8 @@ namespace HyperCasual.Runner
         /// <summary>
         /// Set up all necessary values for the PlayerController.
         /// </summary>
-        /// 
-        
+        ///
+
 
         public void Initialize()
         {
@@ -147,11 +147,11 @@ namespace HyperCasual.Runner
             {
                 m_StartHeight = m_SkinnedMeshRenderer.bounds.size.y;
             }
-            else 
+            else
             {
                 m_StartHeight = 1.0f;
             }
-           
+
             m_Animator.SetInteger("arms", 2);
             m_Animator.SetInteger("legs", 2);
             ResetSpeed();
@@ -276,11 +276,11 @@ namespace HyperCasual.Runner
 
         void Update()
         {
-            if (IsDied()) 
+            if (PlayerStats.Instance.Health == 0f)
             {
                 return;
             }
-            
+
 
 
             float deltaTime = Time.deltaTime;
@@ -335,7 +335,7 @@ namespace HyperCasual.Runner
             //if (Input.GetKeyDown(KeyCode.UpArrow))
             //{
             //    Debug.Log("Up");
-                
+
             //    velocity = jumpForce;
             //}
             m_Transform.Translate(new Vector3(0,velocity,0) * Time.deltaTime);
@@ -351,7 +351,7 @@ namespace HyperCasual.Runner
                 m_Transform.position += Vector3.right * laneDistance;
             }
 
-            
+
 
             if (m_HasInput)
             {
@@ -361,11 +361,11 @@ namespace HyperCasual.Runner
                 // float newPositionDifference = newPositionTarget - m_XPos;
 
                 // newPositionDifference = Mathf.Clamp(newPositionDifference, -horizontalSpeed, horizontalSpeed);
-                
+
                 // m_XPos += newPositionDifference;
             }
 
-            
+
 
             //if (m_Animator != null && deltaTime > 0.0f)
             //{
@@ -401,34 +401,34 @@ namespace HyperCasual.Runner
             return Mathf.Approximately(a.x, b.x) && Mathf.Approximately(a.y, b.y) && Mathf.Approximately(a.z, b.z);
         }
 
-        public void GotHitted()
-        {
-            DecreasePlayerLife(1);
-            audioPlayer.Play();
-        }
-        public void BeingCured()
-        {
-            IncreasePlayerLife(1);
-        }
-        
+        //public void GotHitted()
+        //{
+        //    DecreasePlayerLife(1);
+        //    audioPlayer.Play();
+        //}
+        //public void BeingCured()
+        //{
+        //    IncreasePlayerLife(1);
+        //}
 
-        public int GetPlayerLife()
-        {
-            return playerLife;
-        }
-        private void DecreasePlayerLife(int lifeDecreased)
-        {
-            playerLife -= lifeDecreased;
-        }
-        private void IncreasePlayerLife(int lifeIncreased)
-        {
-            playerLife += lifeIncreased;
-        }
-        public bool IsDied()
-        {
-            return playerLife < 0;
-        }
 
-        
+        //public int GetPlayerLife()
+        //{
+        //    return playerLife;
+        //}
+        //private void DecreasePlayerLife(int lifeDecreased)
+        //{
+        //    playerLife -= lifeDecreased;
+        //}
+        //private void IncreasePlayerLife(int lifeIncreased)
+        //{
+        //    playerLife += lifeIncreased;
+        //}
+        //public bool IsDied()
+        //{
+        //    return playerLife <= 0;
+        //}
+
+
     }
 }
