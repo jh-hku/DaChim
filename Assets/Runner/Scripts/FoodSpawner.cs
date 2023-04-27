@@ -73,8 +73,8 @@ public class FoodSpawner : MonoBehaviour
             float prob = Random.Range(0f, 1f);
 
             if (prob > 0.5 & count < 2) {
-                Vector3 spawnPoint = new Vector3(landDistance * i, -4.5f, transform.position.z);
-
+                // Vector3 spawnPoint = new Vector3(landDistance * i, -4.5f, transform.position.z);
+                Vector3 spawnPoint = new Vector3(landDistance * i, -4.5f, 550f);
              
                 Instantiate(food[Random.Range(0, food.Count)], spawnPoint, Quaternion.identity);
                 count++;
