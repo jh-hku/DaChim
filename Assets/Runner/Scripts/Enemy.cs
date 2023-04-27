@@ -9,7 +9,6 @@ public class Enemy : MonoBehaviour
     public Animator ani;
     HyperCasual.Runner.PlayerController playerController;
 
-
     // Start is called before the first frame update
     void Start()
     {

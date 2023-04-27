@@ -61,6 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnSpeed: 90
+  coinSoundEffect: {fileID: 0}
 --- !u!54 &6841022147955000745
 Rigidbody:
   m_ObjectHideFlags: 0

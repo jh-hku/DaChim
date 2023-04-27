@@ -16,7 +16,6 @@ public class Coin : MonoBehaviour
         }
 
         PlayerStats.Instance.IncrementCoin();
-        //Debug.Log("a");
         //FindObjectOfType<AudioManager>().PlaySound("PickCoin");
         //Add to the player's score
         //GameManager.inst.IncrementCoin();

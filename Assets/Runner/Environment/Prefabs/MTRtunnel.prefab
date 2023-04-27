@@ -618,6 +618,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Exit
       objectReference: {fileID: 0}
+    - target: {fileID: 3498030418684641497, guid: 27edc04de69554b93a1e541a2af903bf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4151839024745513124, guid: 27edc04de69554b93a1e541a2af903bf,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.12
+      objectReference: {fileID: 0}
     - target: {fileID: 8986819245469738864, guid: 27edc04de69554b93a1e541a2af903bf,
         type: 3}
       propertyPath: m_RootOrder
