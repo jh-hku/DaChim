@@ -69,6 +69,7 @@ namespace HyperCasual.Runner
 
         void Awake()
         {
+            Time.timeScale = 0;
             if (s_Instance != null && s_Instance != this)
             {
                 Destroy(gameObject);
@@ -76,7 +77,6 @@ namespace HyperCasual.Runner
             }
             endPanel.SetActive(false);
             s_Instance = this;
-            Time.timeScale = 0;
             startButton.onClick.AddListener(BeginGame);
             replayButton.onClick.AddListener(ReplayGame);
             quitButton.onClick.AddListener(QuitGame);
@@ -85,7 +85,7 @@ namespace HyperCasual.Runner
             // If LevelManager already exists, user is in the LevelEditorWindow
             // if (LevelManager.Instance != null)
             // {
-                StartGame();
+                // StartGame();
             //     m_LevelEditorMode = true;
             // }
 #endif
