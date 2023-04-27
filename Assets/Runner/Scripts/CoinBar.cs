@@ -113,7 +113,7 @@ public class CoinBar: MonoBehaviour
 	{
         Coin_Added += coin;
         if (Coin_Added > Max_Coin)
-            Coin_Added = Max_Coin;
+            Coin_Added = 0;
 
 		UpdateGraphics();
 	}
