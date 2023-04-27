@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44671863, g: 0.496575, b: 0.5750147, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1172,6 +1172,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 885773408479466227, guid: f5969163fd24f4df09df4753595040b4,
         type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 885773408479466227, guid: f5969163fd24f4df09df4753595040b4,
+        type: 3}
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 735da840115134fc8a4f05665c2cf722, type: 3}
@@ -1438,6 +1443,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2123191528}
   distPerFood: 100
+  landDistance: 3.75
   food:
   - {fileID: 100000, guid: 6e616e7bf46c26748a153fac2d7b1293, type: 3}
   - {fileID: 100000, guid: 1168e432e0c205345b90c4ec2f307c97, type: 3}
