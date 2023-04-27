@@ -1862,7 +1862,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec0b64c0b1dccc64d91eee52d85267bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinBar: {fileID: 0}
+  coinBar: {fileID: 839050245}
   coin_collected: 0
   health: 1
   maxHealth: 3
@@ -2275,6 +2275,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1699964721}
   m_CullTransparentMesh: 1
+--- !u!82 &1903852648 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 857437054333850566, guid: f5969163fd24f4df09df4753595040b4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1041707470}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1947714988
 GameObject:
   m_ObjectHideFlags: 0
@@ -2513,7 +2519,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 772645ebc958145c092d6949f827e632, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioPlayer: {fileID: 0}
+  audio: {fileID: 1903852648}
   m_Animator: {fileID: 2123191527}
   m_SkinnedMeshRenderer: {fileID: 2078172179}
   m_PlayerSpeed: 1

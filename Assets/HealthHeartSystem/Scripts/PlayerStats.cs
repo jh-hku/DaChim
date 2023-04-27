@@ -38,6 +38,8 @@ public class PlayerStats : MonoBehaviour
     public float MaxHealth { get { return maxHealth; } }
     public float MaxTotalHealth { get { return maxTotalHealth; } }
 
+    public AudioSource audio;
+
     
     public void Heal(float health)
     {
@@ -76,6 +78,7 @@ public class PlayerStats : MonoBehaviour
     #region Coin
     public void IncrementCoin()
     {
+        audio.Play();
         coin_collected++;
         coinBar.CoinAdding(1f);
         if (coin_collected == 100)

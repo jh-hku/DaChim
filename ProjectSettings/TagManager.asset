@@ -11,6 +11,8 @@ TagManager:
   - sittingpoint
   - pickuppoint
   - waypoint
+  - ManaSprite
+  - Enemy
   layers:
   - Default
   - TransparentFX
