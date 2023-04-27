@@ -15,6 +15,7 @@ public class EmenySpawner : MonoBehaviour
     private Vector3 spawnPosition;
     // Variable to store the enemy prefab
     public List<GameObject> enemy;
+    public float laneDistance = 3.75f;
 
     // Variable to know how fast we should create new enemies
     public float spawnTime = 0.01f;
@@ -69,7 +70,7 @@ public class EmenySpawner : MonoBehaviour
             float prob = Random.Range(0f, 1f);
 
             if (prob > 0.5 & count < 2) {
-                Vector3 spawnPoint = new Vector3(5 * i, -4.5f, transform.position.z);
+                Vector3 spawnPoint = new Vector3(laneDistance * i, -4.5f, transform.position.z);
 
                 // Create an enemy at the 'spawnPoint' position  
                 Instantiate(AddClothes(enemy[Random.Range(0, enemy.Count)]), spawnPoint, Quaternion.identity);
@@ -83,7 +84,7 @@ public class EmenySpawner : MonoBehaviour
             Vector3 spawnPoint = new Vector3(5 * Random.Range(x1, x2), -4.5f, transform.position.z);
 
             // Create an enemy at the 'spawnPoint' position  
-            Instantiate(AddClothes(enemy[Random.Range(0, 4)]), spawnPoint, Quaternion.identity);
+            Instantiate(AddClothes(enemy[Random.Range(0, enemy.Count)]), spawnPoint, Quaternion.identity);
 
         }
         

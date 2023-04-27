@@ -28,7 +28,7 @@ public class Enemy : MonoBehaviour
         {
             // Kiil the player
             playerController.ResetSpeed();
-            playerController.GotHitted();
+            //playerController.GotHitted();
             PlayerStats.Instance.TakeDamage(1.0f);
             Destroy(gameObject);
         }

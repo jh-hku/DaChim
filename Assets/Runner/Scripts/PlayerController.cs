@@ -399,32 +399,32 @@ namespace HyperCasual.Runner
             return Mathf.Approximately(a.x, b.x) && Mathf.Approximately(a.y, b.y) && Mathf.Approximately(a.z, b.z);
         }
 
-        public void GotHitted()
-        {
-            DecreasePlayerLife(1);
-        }
-        public void BeingCured()
-        {
-            IncreasePlayerLife(1);
-        }
+        //public void GotHitted()
+        //{
+        //    DecreasePlayerLife(1);
+        //}
+        //public void BeingCured()
+        //{
+        //    IncreasePlayerLife(1);
+        //}
         
 
-        public int GetPlayerLife()
-        {
-            return playerLife;
-        }
-        private void DecreasePlayerLife(int lifeDecreased)
-        {
-            playerLife -= lifeDecreased;
-        }
-        private void IncreasePlayerLife(int lifeIncreased)
-        {
-            playerLife += lifeIncreased;
-        }
-        public bool IsDied()
-        {
-            return playerLife <= 0;
-        }
+        //public int GetPlayerLife()
+        //{
+        //    return playerLife;
+        //}
+        //private void DecreasePlayerLife(int lifeDecreased)
+        //{
+        //    playerLife -= lifeDecreased;
+        //}
+        //private void IncreasePlayerLife(int lifeIncreased)
+        //{
+        //    playerLife += lifeIncreased;
+        //}
+        //public bool IsDied()
+        //{
+        //    return playerLife <= 0;
+        //}
 
         
     }
