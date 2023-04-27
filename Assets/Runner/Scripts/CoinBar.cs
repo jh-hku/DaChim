@@ -19,7 +19,7 @@ public class CoinBar: MonoBehaviour
 	public Image currentCoinBar;
 	public Image currentCoinGlobe;
 	public Text Coin_Text;
-	public float Coin_Added = 0f;
+	public float Coin = 0f;
 	public float Max_Coin = 100f;
 
 	//==============================================================
@@ -86,16 +86,16 @@ public class CoinBar: MonoBehaviour
 	//==============================================================
 	private void UpdateCoinBar()
 	{
-		float ratio = Coin_Added / Max_Coin;
+		float ratio = Coin / Max_Coin;
         currentCoinBar.rectTransform.localPosition = new Vector3(currentCoinBar.rectTransform.rect.width * ratio - currentCoinBar.rectTransform.rect.width, 0, 0);
-        Coin_Text.text = Coin_Added.ToString ("0") + "/" + Max_Coin.ToString("0");
+        Coin_Text.text = Coin.ToString ("0") + "/" + Max_Coin.ToString("0");
 	}
 
 	private void UpdateCoinGlobe()
 	{
-		float ratio = Coin_Added / Max_Coin;
+		float ratio = Coin / Max_Coin;
         currentCoinGlobe.rectTransform.localPosition = new Vector3(0, currentCoinGlobe.rectTransform.rect.height * ratio - currentCoinGlobe.rectTransform.rect.height, 0);
-        Coin_Text.text = Coin_Added.ToString("0") + "/" + Max_Coin.ToString("0");
+        Coin_Text.text = Coin.ToString("0") + "/" + Max_Coin.ToString("0");
 	}
 
 	//public void TakeDamage(float Damage)
@@ -111,12 +111,22 @@ public class CoinBar: MonoBehaviour
 
 	public void CoinAdding(float coin)
 	{
-        Coin_Added += coin;
-        if (Coin_Added > Max_Coin)
-            Coin_Added = 0;
+        Coin += coin;
+        if (Coin > Max_Coin)
+            Coin = 0;
 
 		UpdateGraphics();
 	}
+
+	public void CoinDeducting(float coin)
+	{
+        Coin -= coin;
+        if (Coin <= 0)
+            Coin = 0;
+
+		UpdateGraphics();
+	}
+
 	public void SetCoin(float max)
 	{
 		Max_Coin += (int)(Max_Coin * max / 100);

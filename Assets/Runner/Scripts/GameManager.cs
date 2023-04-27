@@ -47,7 +47,8 @@ namespace HyperCasual.Runner
         public Timer timer;
         public Text finalTimeText;
         public Text curTimeText;
-        
+        // public Text surpriseText;
+
         bool m_IsPlaying;
         public Button replayButton;
         public Button quitButton;
@@ -100,6 +101,7 @@ namespace HyperCasual.Runner
                 Lose();
             }
             float curTime = timer.GetElapsedTime();
+
             //Debug.Log(curTime);
             curTimeText.text = string.Format("{0:00}:{1:00}", Mathf.FloorToInt(curTime / 60), Mathf.FloorToInt(curTime % 60));
     

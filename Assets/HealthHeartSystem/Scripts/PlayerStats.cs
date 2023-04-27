@@ -80,7 +80,7 @@ public class PlayerStats : MonoBehaviour
     {
         audio.Play();
         coin_collected++;
-        coinBar.CoinAdding(1f);
+        coinBar.CoinAdding(1);
         if (coin_collected == 100)
         {
             coin_collected = 0;
@@ -90,4 +90,29 @@ public class PlayerStats : MonoBehaviour
         //Debug.Log(coin_collected);
     }
     #endregion
+
+    public void bonusCoin(int num)
+    {
+        audio.Play();
+        coin_collected += num;
+        coinBar.CoinAdding(num);
+        if (coin_collected >= 100)
+        {
+            coin_collected = 0;
+            //playerController.BeingCured();
+            Heal(1.0f);
+        }
+        //Debug.Log(coin_collected);
+    }
+
+    public void deductCoin(int num)
+    {
+        audio.Play();
+        coin_collected -= num;
+        coinBar.CoinDeducting(num);
+        if (coin_collected <= 0)
+        {
+            coin_collected = 0;
+        }
+    }
 }
