@@ -43,7 +43,7 @@ public class MTRTunnel : MonoBehaviour
 
     public void SpawnCoins()
     {
-        int coinsToSpawn = 10;
+        int coinsToSpawn = 5;
         for (int i = 0; i < coinsToSpawn; i++)
         {
             GameObject temp = Instantiate(coinPrefab, transform);

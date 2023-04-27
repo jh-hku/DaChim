@@ -10,14 +10,16 @@ public class FoodSpawner : MonoBehaviour
     Vector3 offset;
 
    
-    public float distPerFood = 200f;
+    public float distPerFood = 300f;
     private float distanceMoved = 0f;
     private Vector3 spawnPosition;
+    public float landDistance = 3.75f;
+    private float time = 0f; 
     
     public List<GameObject> food;
 
     // Variable to know how fast we should create new enemies
-    public float spawnTime = 0.01f;
+    public float spawnTime = 3f;
     int randNum;
 
     // Start is called before the first frame update
@@ -25,11 +27,13 @@ public class FoodSpawner : MonoBehaviour
     {
         offset = transform.position - player.position;
         spawnPosition = transform.position;
-        
+        //InvokeRepeating("addFood", 0.0f, spawnTime);    
+
+
     }
 
     // Update is called once per frame
-    private void Update()
+    private void FixedUpdate()
     {
         // separated the EmenySpawner and the player with fixed distance
         Vector3 targetPos = player.position + offset;
@@ -44,6 +48,7 @@ public class FoodSpawner : MonoBehaviour
         {
             addFood();
             distanceMoved = 0f;
+            distPerFood += 20f;
         }
 
 
@@ -68,10 +73,10 @@ public class FoodSpawner : MonoBehaviour
             float prob = Random.Range(0f, 1f);
 
             if (prob > 0.5 & count < 2) {
-                Vector3 spawnPoint = new Vector3(5 * i, -4.5f, transform.position.z);
+                Vector3 spawnPoint = new Vector3(landDistance * i, -4.5f, transform.position.z);
 
              
-                Instantiate(food[Random.Range(0, 5)], spawnPoint, Quaternion.identity);
+                Instantiate(food[Random.Range(0, food.Count)], spawnPoint, Quaternion.identity);
                 count++;
             }
             
@@ -79,10 +84,10 @@ public class FoodSpawner : MonoBehaviour
 
         
         if (count == 0) {
-            Vector3 spawnPoint = new Vector3(5 * Random.Range(x1, x2), -4.5f, transform.position.z);
+            Vector3 spawnPoint = new Vector3(landDistance * Random.Range(x1, x2), -4.5f, transform.position.z);
 
            
-            Instantiate(food[Random.Range(0, 5)], spawnPoint, Quaternion.identity);
+            Instantiate(food[Random.Range(0, food.Count)], spawnPoint, Quaternion.identity);
 
         }
         
