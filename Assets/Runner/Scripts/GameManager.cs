@@ -340,6 +340,7 @@ namespace HyperCasual.Runner
             m_LoseEvent.Raise();
             Time.timeScale = 0;
             endPanel.SetActive(true);
+            PlayerStats.Instance.mysteryBox.SetActive(false);
             foreach (var e in elements)
             {
                 e.SetActive(false);
