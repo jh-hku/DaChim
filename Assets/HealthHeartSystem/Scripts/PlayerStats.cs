@@ -48,13 +48,10 @@ public class PlayerStats : MonoBehaviour
 
     void Update()
     {
-        if (Time.timeScale == 1.0f)
+        float currTime = timer.GetElapsedTime();
+        if (currTime-crashTime > 1)
         {
-            float currTime = timer.GetElapsedTime();
-            if (currTime-crashTime > 1)
-            {
-                mysteryBox.SetActive(false);
-            }
+            mysteryBox.SetActive(false);
         }
     }
     
