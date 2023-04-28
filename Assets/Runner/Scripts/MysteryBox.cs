@@ -34,22 +34,27 @@ public class MysteryBox : MonoBehaviour
             {
                 case 0:
                     PlayerStats.Instance.Heal(0.5f);
+                    PlayerStats.Instance.ShowMysteryResult("+ 0.5 ♥");
                     // surpriseText.text = "+ 0.5 ♥";
                     break;
                 case 1:
                     PlayerStats.Instance.TakeDamage(0.5f);
+                    PlayerStats.Instance.ShowMysteryResult("- 0.5 ♥");
                     // surpriseText.text = "- 0.5 ♥";
                     break;
                 case 2:
                     PlayerStats.Instance.bonusCoin(5);
+                    PlayerStats.Instance.ShowMysteryResult("+ 5 $$");
                     // surpriseText.text = "+ 5 $$";
                     break;
                 case 3:
                     PlayerStats.Instance.deductCoin(5);
+                    PlayerStats.Instance.ShowMysteryResult("- 5 $$");
                     // surpriseText.text = "- 5 $$";
                     break;
                 default:
                     PlayerStats.Instance.bonusCoin(1);
+                    PlayerStats.Instance.ShowMysteryResult("+ 1 $$");
                     // surpriseText.text = "+ 1 $$";
                     break;
             }

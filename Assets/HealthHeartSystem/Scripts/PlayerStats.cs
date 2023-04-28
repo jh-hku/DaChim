@@ -3,6 +3,7 @@
  */
 
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -39,7 +40,23 @@ public class PlayerStats : MonoBehaviour
     public float MaxTotalHealth { get { return maxTotalHealth; } }
 
     public AudioSource audio;
+    
+    public GameObject mysteryBox;
+    public Text mysteryBoxText;
+    public Timer timer;
+    private float crashTime = -1;
 
+    void Update()
+    {
+        if (Time.timeScale == 1.0f)
+        {
+            float currTime = timer.GetElapsedTime();
+            if (currTime-crashTime > 1)
+            {
+                mysteryBox.SetActive(false);
+            }
+        }
+    }
     
     public void Heal(float health)
     {
@@ -73,6 +90,21 @@ public class PlayerStats : MonoBehaviour
 
         if (onHealthChangedCallback != null)
             onHealthChangedCallback.Invoke();
+    }
+
+    public void ShowMysteryResult(string itemName)
+    {
+        crashTime = timer.GetElapsedTime();
+        mysteryBox.SetActive(true);
+        mysteryBoxText.text = itemName;
+        if (itemName.Substring(0,1) == "+")
+        {
+            mysteryBoxText.color = Color.green;
+        }
+        else 
+        {
+            mysteryBoxText.color = Color.red;
+        }
     }
 
     #region Coin
