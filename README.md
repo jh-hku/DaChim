@@ -5,29 +5,37 @@ DaCHIM is a 3D action game that takes inspiration from popular endless runner ga
 ![WhatsApp Image 2023-04-29 at 13 33 42](https://user-images.githubusercontent.com/61629974/235309822-950b72b3-79f4-4741-8a61-02fe998bc595.jpeg)
 
 
-Installation and Running of Project:
+# Installation and Running of Project:
+
 - Clone to local repo and open the folder in Unity Hub.
 - Unity Editor Version 2021.3.18f1 for best performance.
 - Materials or Textures might be detached from the prefabs, manual migration might be needed.
 
-Mechanics Require:
+# Mechanics Require:
+
 - Left / Right Arrow key on a keyboard.
 - Mouse to initiate or quit game.
 
-Gameplay:
+# Gameplay:
+
 During the gameplay, the player controls the main character who runs through the MTR station, switching between three lanes to avoid obstacles such as pedestrians and MTR officers. The player can grab food items to regain health and collect coins to purchase additional health or mystery boxes that may have a beneficial or negative effect. The game ends when the player loses all five hearts, and the character misses the lesson.
 
-External Resources:
+# External Resources:
+
 The game utilizes several external resources, such as the "SIMPLE modular human" package from the Unity Asset Store for character models and animations, templates from Alexander Kotov and Layer Lab for random objects, and audio effects and background music from Pixabay and YouTube.
 
-Features:
+# Features:
+
 The game features a main player character and non-player characters (NPCs) with randomized clothing, random objects such as food, coins, and mystery boxes, and two progress bars to keep track of the player's health and coin collection.
 
-Evaluation:
+# Evaluation:
+
 The game is built using the Unity Game Engine and incorporates libraries from the Unity Asset Store. It uses animations to create different motions of the player and NPCs, and a Lit shader under the Universal Render Pipeline for all materials. The game has an audio manager to handle background music and sound effects, a timer script to track gameplay time, and an item spawner for coins, foods, and enemies.
 
-Future Work:
+# Future Work:
+
 Possible future work for the game includes adding more actions to the player, such as jumping and sliding, incorporating more collectibles into the game, and switching backgrounds to other scenes such as running in the campus U-Street.
 
-DISCLAIMER: This game was created as part of a school project in University of Hong Kong and is intended for educational purposes only. All assets used in this game are either original or used under the Creative Commons license, and no copyright infringement is intended. The game is provided as is, without any warranty, and the creators are not responsible for any damage or loss caused by its use.
+# DISCLAIMER: 
+This game was created as part of a school project in University of Hong Kong and is intended for educational purposes only. All assets used in this game are either original or used under the Creative Commons license, and no copyright infringement is intended. The game is provided as is, without any warranty, and the creators are not responsible for any damage or loss caused by its use.
 
