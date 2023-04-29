@@ -5,13 +5,13 @@ DaCHIM is a 3D action game that takes inspiration from popular endless runner ga
 ![WhatsApp Image 2023-04-29 at 13 33 42](https://user-images.githubusercontent.com/61629974/235309822-950b72b3-79f4-4741-8a61-02fe998bc595.jpeg)
 
 
-# Installation and Running of Project:
+## Installation and Running of Project:
 
 - Clone to local repo and open the folder in Unity Hub.
 - Unity Editor Version 2021.3.18f1 for best performance.
 - Materials or Textures might be detached from the prefabs, manual migration might be needed.
 
-# Mechanics Require:
+## Mechanics Required:
 
 - Left / Right Arrow key on a keyboard.
 - Mouse to initiate or quit game.
