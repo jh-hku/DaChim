@@ -102,6 +102,7 @@ public class PlayerStats : MonoBehaviour
         {
             mysteryBoxText.color = Color.red;
         }
+
     }
 
     #region Coin

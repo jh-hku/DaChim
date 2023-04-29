@@ -44,6 +44,7 @@ namespace HyperCasual.Runner
         /// </summary>
         public bool IsPlaying => m_IsPlaying;
         public GameObject endPanel;
+        private Image endPanelImage;
         public Timer timer;
         public Text finalTimeText;
         public Text curTimeText;
@@ -63,6 +64,7 @@ namespace HyperCasual.Runner
 
         public List<GameObject> elements = new List<GameObject>();
         
+        private float endPanelImageOpacity = 0f;
 
 // #if UNITY_EDITOR
 //         bool m_LevelEditorMode;
@@ -77,6 +79,8 @@ namespace HyperCasual.Runner
                 return;
             }
             endPanel.SetActive(false);
+            endPanelImage = endPanel.transform.GetChild(0).GetComponent<Image>();
+            
             s_Instance = this;
             startButton.onClick.AddListener(BeginGame);
             replayButton.onClick.AddListener(ReplayGame);
@@ -98,14 +102,25 @@ namespace HyperCasual.Runner
             if ( PlayerStats.Instance.Health == 0f)
             {   
                 //Debug.Log("Lost");
-                Lose();
+                endPanel.SetActive(true);
             }
             float curTime = timer.GetElapsedTime();
 
             //Debug.Log(curTime);
             curTimeText.text = string.Format("{0:00}:{1:00}", Mathf.FloorToInt(curTime / 60), Mathf.FloorToInt(curTime % 60));
-    
-        
+
+            if (endPanel.activeSelf)
+            {
+                if (endPanelImage.color.a < 1)
+                {
+                    endPanelImage.color = new Color(1, 1, 1, endPanelImageOpacity);
+                    endPanelImageOpacity += Time.deltaTime;
+                    Debug.Log("deltaTime: " + Time.deltaTime);
+                } else {
+                    Time.timeScale = 0f;
+                    Lose();
+                }
+            }
         }
 
         /// <summary>
@@ -338,9 +353,7 @@ namespace HyperCasual.Runner
         public void Lose()
         {
             m_LoseEvent.Raise();
-            Time.timeScale = 0;
-            endPanel.SetActive(true);
-            PlayerStats.Instance.mysteryBox.SetActive(false);
+            // endPanel.SetActive(true);
             foreach (var e in elements)
             {
                 e.SetActive(false);
@@ -348,7 +361,6 @@ namespace HyperCasual.Runner
             float finalTime = timer.GetElapsedTime();
             //Debug.Log(finalTime);
             finalTimeText.text = string.Format("Final Time: {0:00}:{1:00}", Mathf.FloorToInt(finalTime / 60), Mathf.FloorToInt(finalTime % 60));
-    
 
 #if UNITY_EDITOR
             // if (m_LevelEditorMode)
