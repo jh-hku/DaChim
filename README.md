@@ -2,6 +2,9 @@
 
 DaCHIM is a 3D action game that takes inspiration from popular endless runner games like Temple Run and Subway Surf. Developed by a team of students from the University of Hong Kong, the game is set in the HKU MTR station and is designed to simulate the experience of rushing to class while avoiding obstacles and collecting rewards.
 
+![WhatsApp Image 2023-04-29 at 13 33 42](https://user-images.githubusercontent.com/61629974/235309822-950b72b3-79f4-4741-8a61-02fe998bc595.jpeg)
+
+
 Installation and Running of Project:
 - Clone to local repo and open the folder in Unity Hub.
 - Unity Editor Version 2021.3.18f1 for best performance.
